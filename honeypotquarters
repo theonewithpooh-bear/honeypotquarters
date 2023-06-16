@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Honeypot Quarters Limited</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', serif;
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+    }
+    header {
+      background-color: #FFB81C;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    nav {
+      background-color: #EAA810;
+    }
+    nav ul {
+      list-style-type: none;
+      padding: 0;
+      overflow: hidden;
+      background-color: #EAA810;
+      text-align: center;
+    }
+    nav ul li {
+      display: inline;
+    }
+    nav ul li a {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      padding: 14px 16px;
+      transition: 0.3s;
+    }
+    nav ul li a:hover {
+      background-color: #ffaa22;
+    }
+    main {
+      padding: 20px;
+    }
+    footer {
+      background-color: #EAA810;
+      color: white;
+      text-align: center;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Honeypot Quarters Limited</h1>
+  </header>
+  
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Our Properties</a></li>
+      <li><a href="#">Our Mission</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  </nav>
+  
+  <main>
+    <section id="intro">
+      <h2>About Us</h2>
+      <p>Honeypot Quarters Limited is a globally recognized organization dedicated to preserving and promoting the beauty and enchantment of the Hundred Acre Woods around the globe. We believe in the power of nature to bring joy and inspiration, and strive to provide a sanctuary for visitors to experience the peace and tranquility of these magical woods.</p>
+
+      <p>With properties spanning from the rolling green landscapes of Sussex in the United Kingdom to the rustic countryside of Krasnodar in Russia, we strive to maintain the authenticity and diversity of these woods. Each of our Hundred Acre Woods has been meticulously preserved to respect the local fauna and flora, creating a haven for wildlife and a wonderful retreat for visitors.</p>
+
+      <p>As custodians of these beautiful properties, we work closely with local communities and conservationists to ensure sustainable management practices. We prioritize the health and well-being of the ecosystem, balancing accessibility with preservation efforts.</p>
+    </section>
+
+    <section id="properties">
+      <h2>Our Properties</h2>
+      <p>We are proud owners of numerous Hundred Acre Woods across the world. Our portfolio represents a diverse array of natural habitats, each with their own unique charm and character.</p>
+
+      <h3>The Hundred Acre Wood, Sussex, England</h3>
+      <p>This is the original Hundred Acre Wood that has captured the imaginations of children and adults alike for generations. The vast expanses of open meadows, dense woodlands, and sparkling streams provide a tranquil escape from the hustle and bustle of everyday life.
+
+  <h3>Le Bois de Cent Acres - Dordogne, France</h3>
+  <p>Nestled in the heart of the Dordogne region, this Hundred Acre Wood offers visitors a taste of the French countryside. With its quaint groves, enchanting wildlife, and serene pastures, it's a picture-perfect sanctuary that encapsulates the charm of rural France.</p>
+
+  <h3>El Bosque de las Cien Acres - Andalusia, Spain</h3>
+  <p>Located in the sunny region of Andalusia, our Spanish Hundred Acre Wood is a vibrant blend of lush forests, wildflower meadows, and rolling hills. The wood comes alive with color and sound, making it a feast for the senses.</p>
+
+  <h3>Il Bosco dei Cento Acri - Tuscany, Italy</h3>
+  <p>Our Italian Hundred Acre Wood is a rustic paradise set against the picturesque backdrop of Tuscany. Its verdant hills, winding trails, and tranquil streams are a testament to the timeless beauty of Italian landscapes.</p>
+
+  <h3>Sto Acre Wood - Krasnodar, Russia</h3>
+  <p>The Sto Acre Wood in Krasnodar is our newest addition. Surrounded by the breathtaking landscapes of Russia, it's a unique blend of serene forests, tranquil rivers, and rich biodiversity, offering an immersive experience in the heart of Russia's wilderness.</p>
+</section>
+
+  </main>
+
+
+  <footer>
+    <p>&copy; 2023 Honeypot Quarters Limited. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+```
