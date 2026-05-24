@@ -142,14 +142,167 @@ IMAGES = [
     },
 ]
 
+# -----------------------------------------------------------------------------
+# Illustrated map images. Hand-painted watercolor + brown ink on aged cream
+# paper, top-down view of a small wood, hand-lettered labels. Photographed
+# slightly tilted on a wooden surface in natural window light — as if the
+# warden's map were lying on a desk.
+# -----------------------------------------------------------------------------
+
+MAP_STYLE = (
+    " Hand-painted illustrated estate map, top-down view on aged cream paper "
+    "with slightly foxed edges. Watercolor washes over fine brown ink linework. "
+    "Schematic tiny tree icons (little ink trees), dashed brown ink paths, tiny "
+    "ink buildings. A compass rose in one corner. A scale bar reading '100 acres'. "
+    "Hand-lettered serif labels in irregular print. The style of a small private "
+    "trust's warden's map — beautiful but unfussy, drawn by hand. "
+    "Photographed slightly tilted on a wooden table in soft natural window "
+    "light, like a casual phone snapshot of the map, with paper texture and a "
+    "faint shadow at one edge. No people, no modern elements, no GPS markings."
+)
+
+MAPS = [
+    # ---- EUROPE (homepage) --------------------------------------------------
+    {
+        "filename": "map-europe.png",
+        "size": "1536x1024",
+        "prompt": (
+            "An antique-style illustrated wall map of Europe on aged cream paper, "
+            "with five woodland properties marked by small honey-gold circular "
+            "pins, each labelled by hand: 'I. Sussex' in southern England, "
+            "'II. Dordogne' in southwest France, 'III. Andalusia' in southern "
+            "Spain, 'IV. Tuscany' in central Italy, and 'V. Krasnodar' in the "
+            "western Caucasus of Russia. Watercolor wash of pale green for land, "
+            "pale blue for sea, with hand-drawn brown ink coastlines, dashed sea "
+            "grid lines, and tiny illustrated cartouche reading 'THE FIVE WOODS "
+            "OF HONEYPOT QUARTERS' in hand-lettered serif. A large compass rose "
+            "in the lower-right corner with N, S, E, W marked. Slight foxing on "
+            "the paper edges. The style of a small private trust's antique-feel "
+            "wall map. Photographed slightly tilted in natural window light, like "
+            "a casual phone snapshot of the map lying on a wooden lectern, with "
+            "paper texture visible. No modern elements, no people."
+        ),
+    },
+    # ---- SUSSEX -------------------------------------------------------------
+    {
+        "filename": "map-sussex.png",
+        "size": "1536x1024",
+        "prompt": (
+            "An illustrated estate map of an English wood titled 'THE HUNDRED ACRE "
+            "WOOD' in large hand-lettered serif at the top, subtitled 'Sussex · "
+            "surveyed Oct. MMXXIV'. The wood is roughly oval with an irregular "
+            "boundary. Features shown and labelled by hand: a tiny wardens' lodge "
+            "(small house icon) at the south boundary, a central sunken dell with "
+            "three rope bridges (zigzag rope lines) crossing it, a large hornbeam "
+            "tree on the west side labelled 'BEE TREE' with small bees drawn "
+            "around it, a tree stump on the north boundary labelled 'NORTH POLE', "
+            "and a small east meadow labelled 'EEYORE'S FIELD'. Pale sage-green "
+            "watercolor wash over the wooded area. Dashed brown ink paths "
+            "connecting features." + MAP_STYLE
+        ),
+    },
+    # ---- DORDOGNE -----------------------------------------------------------
+    {
+        "filename": "map-dordogne.png",
+        "size": "1536x1024",
+        "prompt": (
+            "An illustrated estate map of a French wood titled 'LE BOIS DE CENT "
+            "ACRES' in large hand-lettered serif at the top, subtitled 'Dordogne "
+            "· relevé automne MMXXIV'. The wood is irregularly shaped. Features "
+            "shown and labelled by hand: a pale limestone pilgrim path crossing "
+            "the wood east-to-west (drawn as a wider double line) labelled 'LE "
+            "SENTIER DU PÈLERIN', a cluster of small chestnut trees in the "
+            "northwest labelled 'LES CHÂTAIGNIERS', a smaller cluster of walnut "
+            "trees on the south side labelled 'NOYERS', a single beehive at the "
+            "northern bend of the path labelled 'LA RUCHE', a partly-collapsed "
+            "dry-stone wall labelled 'LE MUR', and a small river along the "
+            "southern boundary (drawn in pale blue) labelled 'LA RIVIÈRE'. Pale "
+            "warm sandstone-brown watercolor wash over the wooded area." + MAP_STYLE
+        ),
+    },
+    # ---- ANDALUSIA ----------------------------------------------------------
+    {
+        "filename": "map-andalusia.png",
+        "size": "1536x1024",
+        "prompt": (
+            "An illustrated estate map of a Spanish wood titled 'EL BOSQUE DE LAS "
+            "CIEN ACRES' in large hand-lettered serif at the top, subtitled "
+            "'Andalucía · levantado otoño MMXXIV'. The wood sits on sloped "
+            "hillside, with hand-drawn brown ink contour lines suggesting the "
+            "slope. Features shown and labelled by hand: a cluster of cork oak "
+            "trees in the southern half (drawn with their characteristic stripped "
+            "orange-red lower trunks) labelled 'EL ALCORNOCAL', a row of "
+            "umbrella pines (distinctive flat-topped canopy) along the upper "
+            "ridge labelled 'LOS PINOS', a dashed cart track winding through the "
+            "cork grove labelled 'EL CARRIL DE LA SACA', a small dry stream "
+            "labelled 'EL ARROYO' running north-south, three small boulders "
+            "labelled 'LAS PIEDRAS DEL LINCE' (the lynx stones), and a tiny "
+            "stone hut on the eastern side labelled 'EL CASTAÑUELO'. Pale ochre "
+            "and warm tan watercolor wash for the dry hillside, sage-green for "
+            "the pine ridge." + MAP_STYLE
+        ),
+    },
+    # ---- TUSCANY ------------------------------------------------------------
+    {
+        "filename": "map-tuscany.png",
+        "size": "1536x1024",
+        "prompt": (
+            "An illustrated estate map of an Italian wood titled 'IL BOSCO DEI "
+            "CENTO ACRI' in large hand-lettered serif at the top, subtitled "
+            "'Toscana · rilevato autunno MMXXIV'. Features shown and labelled by "
+            "hand: at the very centre of the wood, the small footprint of a "
+            "ruined 14th-century chapel — only its north wall partly standing, "
+            "the rest shown as collapsed stones — labelled 'LA CAPPELLA "
+            "(rovina)'; a pilgrim path running north-south past the chapel "
+            "labelled 'IL SENTIERO DEL PELLEGRINO'; a row of tall thin Italian "
+            "cypress trees along the western edge labelled 'I CIPRESSI'; a "
+            "central stand of small holm oak trees labelled 'IL LECCETO'; a row "
+            "of umbrella pines on the eastern boundary labelled 'I PINI'; a tiny "
+            "circular Roman cistern labelled 'LA CISTERNA (asciutta)'; and a "
+            "small memorial bench labelled 'LA PIETRA BELLINI'. Warm "
+            "sienna-red and dusty green watercolor washes over the wooded "
+            "area, with pale tan for the open clearings." + MAP_STYLE
+        ),
+    },
+    # ---- KRASNODAR ----------------------------------------------------------
+    {
+        "filename": "map-krasnodar.png",
+        "size": "1536x1024",
+        "prompt": (
+            "An illustrated estate map of a Russian woodland titled 'СТО-АКРОВЫЙ "
+            "ЛЕС' in large hand-lettered Cyrillic serif at the top, subtitled "
+            "below in smaller hand-lettered Latin script 'Krasnodar Krai · "
+            "обследован осенью MMXXIV'. The wood is on a mountain slope; brown "
+            "ink contour lines indicate the rising elevation from south (lower) "
+            "to north (higher). Features shown and labelled by hand: an avenue "
+            "of Caucasian beech trees on the lower slope labelled 'БУКОВАЯ "
+            "АЛЛЕЯ' (beech avenue), a crest of tall silver fir trees (pointed "
+            "conifer shapes) along the upper slope labelled 'ПИХТОВЫЙ ГРЕБЕНЬ' "
+            "(fir crest), a small stream winding from the upper crest down to "
+            "the eastern boundary labelled 'МЕДВЕЖИЙ РУЧЕЙ' (bear stream), a "
+            "tiny wooden bridge crossing the stream labelled 'МОСТ' (bridge), a "
+            "tiny wardens' lodge near the eastern boundary labelled 'ДОМ "
+            "ЛЕСНИКА' (warden's lodge), and a small upright memorial stone on "
+            "the east edge marked '1944'. Cool slate-blue and silver-green "
+            "watercolor washes for the conifer-heavy slope; pale sage for the "
+            "beech avenue." + MAP_STYLE
+        ),
+    },
+]
+
+
+def all_images():
+    return IMAGES + MAPS
+
 
 def generate(force: bool = False) -> None:
     client = OpenAI()  # reads OPENAI_API_KEY from env
-    total = len(IMAGES)
+    images = all_images()
+    total = len(images)
     skipped = 0
     failed = []
 
-    for i, img in enumerate(IMAGES, 1):
+    for i, img in enumerate(images, 1):
         out = OUT_DIR / img["filename"]
         # Also treat a converted .jpg version as "exists" so reruns are cheap
         jpg = out.with_suffix(".jpg")
