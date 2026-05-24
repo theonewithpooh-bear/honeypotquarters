@@ -3,870 +3,583 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Honeypot Quarters Limited — a trust of five Hundred Acre Woods, in five countries. Annual Notice, May MMXXVI.">
-  <title>Honeypot Quarters Limited — Annual Notice, May MMXXVI</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5' fill='none' stroke='%23C68B0E' stroke-width='2'/><polygon points='16,9 23,13 23,21 16,25 9,21 9,13' fill='%23C68B0E' opacity='0.25'/></svg>">
+  <meta name="description" content="Honeypot Quarters Limited — a trust of five Hundred Acre Woods, in five countries. Kept in perpetuity since 1926.">
+  <title>Honeypot Quarters Limited</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><polygon points='16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5' fill='none' stroke='%23B47A0A' stroke-width='2'/><polygon points='16,9 23,13 23,21 16,25 9,21 9,13' fill='%23B47A0A' opacity='0.25'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=IM+Fell+English:ital@0;1&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
   <style>
-    :root {
-      --paper:      #F6EFDD;
-      --paper-deep: #ECE2C5;
-      --ink:        #1F1A12;
-      --muted:      #6B5C46;
-      --gold:       #B47A0A;
-      --gold-soft:  #C68B0E;
-      --rule:       rgba(31, 26, 18, 0.18);
-      --rule-soft:  rgba(31, 26, 18, 0.10);
+    /* Page-specific: hero photo + intro */
+    .hero-photo {
+      position: relative;
+      height: clamp(420px, 70vh, 720px);
+      overflow: hidden;
+      margin-bottom: 0;
     }
-
-    *, *::before, *::after { box-sizing: border-box; }
-
-    html {
-      scroll-behavior: smooth;
-      background: var(--paper);
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      filter: contrast(0.96) saturate(0.95);
     }
-
-    body {
-      font-family: 'EB Garamond', Garamond, Georgia, 'Times New Roman', serif;
-      font-size: 19px;
-      line-height: 1.62;
-      color: var(--ink);
-      background: var(--paper);
-      margin: 0;
-      padding: 0;
-      font-feature-settings: "kern", "liga", "onum", "calt";
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    /* Faint paper grain so it doesn't feel flat */
-    body::before {
+    .hero-photo::after {
       content: "";
-      position: fixed;
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(31,26,18,0.55) 0%, rgba(31,26,18,0.05) 40%, rgba(31,26,18,0.45) 100%);
+    }
+    .hero-photo-text {
+      position: absolute;
       inset: 0;
-      pointer-events: none;
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.12 0 0 0 0 0.10 0 0 0 0 0.07 0 0 0 0.06 0'/></filter><rect width='160' height='160' filter='url(%23n)'/></svg>");
-      mix-blend-mode: multiply;
-      opacity: 0.55;
-      z-index: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0 24px;
+      color: var(--paper);
+      z-index: 2;
+    }
+    .hero-photo-text h1 {
+      font-family: var(--display);
+      font-size: clamp(2.6rem, 7vw, 5.2rem);
+      margin: 0 0 12px;
+      letter-spacing: -0.01em;
+      color: var(--paper);
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+      max-width: 14ch;
+    }
+    .hero-photo-text .tag {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: clamp(1.05rem, 1.5vw, 1.3rem);
+      max-width: 540px;
+      margin: 0 0 28px;
+      color: var(--paper);
+      opacity: 0.94;
+      text-shadow: 0 1px 12px rgba(0,0,0,0.4);
+    }
+    .hero-photo-text .est {
+      font-variant: small-caps;
+      letter-spacing: 0.28em;
+      font-size: 0.82rem;
+      color: var(--paper);
+      opacity: 0.85;
+      border: 1px solid rgba(255,255,255,0.4);
+      padding: 6px 18px;
+      border-radius: 999px;
     }
 
-    .page {
-      max-width: 720px;
+    .intro {
+      max-width: 640px;
       margin: 0 auto;
-      padding: 88px 28px 100px;
-      position: relative;
-      z-index: 1;
-    }
-
-    a {
-      color: var(--gold);
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease;
-    }
-    a:hover { border-bottom-color: var(--gold); }
-
-    p { margin: 0 0 1.05em; hyphens: auto; -webkit-hyphens: auto; }
-
-    em, i { font-style: italic; }
-
-    ::selection { background: var(--gold); color: var(--paper); }
-
-    /* ====== TITLE BLOCK ====== */
-    .title-block {
-      text-align: center;
-      margin-bottom: 96px;
-    }
-    .title-mark {
-      display: block;
-      margin: 0 auto 28px;
-    }
-    .trust-name {
-      font-weight: 500;
-      font-size: 1rem;
-      letter-spacing: 0.34em;
-      text-transform: uppercase;
-      margin: 0 0 16px;
-      color: var(--ink);
-    }
-    .trust-tag {
-      font-style: italic;
-      color: var(--muted);
-      font-size: 1.08rem;
-      margin: 0 0 32px;
-    }
-    .annual-notice {
-      font-variant: small-caps;
-      letter-spacing: 0.14em;
-      font-size: 0.88rem;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    /* ====== CONTENTS ====== */
-    .contents {
-      max-width: 460px;
-      margin: 0 auto 110px;
-      padding: 26px 0 28px;
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-    }
-    .contents-title {
-      text-align: center;
-      font-variant: small-caps;
-      letter-spacing: 0.22em;
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin: 0 0 18px;
-    }
-    .contents ol {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 0.98rem;
-    }
-    .contents li {
-      padding: 3px 0;
-    }
-    .contents a {
-      color: var(--ink);
-      display: grid;
-      grid-template-columns: 3em 1fr;
-      align-items: baseline;
-      border-bottom: none;
-    }
-    .contents .num {
-      color: var(--muted);
-      font-style: italic;
-    }
-    .contents a:hover .text { color: var(--gold); }
-
-    /* ====== SECTIONS ====== */
-    section { margin-bottom: 84px; position: relative; }
-
-    .section-title {
-      text-align: center;
-      font-weight: 500;
-      font-size: 1.06rem;
-      font-variant: small-caps;
-      letter-spacing: 0.22em;
-      color: var(--ink);
-      margin: 0 0 48px;
-      padding-bottom: 18px;
-      position: relative;
-    }
-    .section-title .num {
-      display: block;
-      font-style: italic;
-      font-variant: normal;
-      letter-spacing: 0;
-      color: var(--gold);
-      font-size: 0.88rem;
-      margin-bottom: 8px;
-      text-transform: none;
-    }
-    .section-title::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 0;
-      transform: translateX(-50%);
-      width: 36px;
-      height: 1px;
-      background: var(--gold);
-      opacity: 0.55;
-    }
-
-    h3 {
-      font-family: inherit;
-      font-weight: 500;
-      font-style: italic;
-      font-size: 1.06rem;
-      margin: 26px 0 6px;
-      color: var(--ink);
-    }
-
-    /* Drop cap on the very first paragraph of the document */
-    .dropcap::first-letter {
-      font-weight: 500;
-      float: left;
-      font-size: 3.6em;
-      line-height: 0.88;
-      padding: 6px 10px 0 0;
-      color: var(--gold);
-    }
-
-    /* ====== FOOTNOTES ====== */
-    sup.fn {
-      font-size: 0.7em;
-      vertical-align: super;
-      line-height: 0;
-    }
-    sup.fn a {
-      color: var(--gold);
-      border-bottom: none;
-      padding: 0 1px;
-    }
-    ol.footnotes {
-      margin: 28px 0 0;
-      padding-left: 1.4em;
-      border-top: 1px solid var(--rule-soft);
-      padding-top: 14px;
-      font-size: 0.86rem;
-      color: var(--muted);
-      counter-reset: fnc;
-      list-style: none;
-    }
-    ol.footnotes li {
-      counter-increment: fnc;
-      margin-bottom: 0.55em;
-      position: relative;
-      padding-left: 1.6em;
-    }
-    ol.footnotes li::before {
-      content: counter(fnc);
-      position: absolute;
-      left: 0;
-      top: 0;
-      font-style: italic;
-      color: var(--gold);
-    }
-    ol.footnotes a.back {
-      color: var(--gold);
-      border-bottom: none;
-      padding-left: 4px;
-    }
-    :target {
-      background: rgba(180, 122, 10, 0.10);
-      transition: background 0.6s ease;
-    }
-
-    /* ====== I. THE TRUST ====== */
-    .trust-prose { margin-bottom: 0; }
-
-    /* ====== II. WOODS ====== */
-    .woods {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      counter-reset: wood;
-    }
-    .wood {
-      counter-increment: wood;
-      padding: 30px 0 28px;
-      border-top: 1px solid var(--rule);
-    }
-    .wood:last-child { border-bottom: 1px solid var(--rule); }
-    .wood-number {
-      font-style: italic;
-      color: var(--gold);
-      font-size: 0.86rem;
-      letter-spacing: 0.06em;
-    }
-    .wood-number::before { content: counter(wood, upper-roman) ". "; }
-    .wood-name {
-      font-size: 1.32rem;
-      font-style: italic;
-      margin: 4px 0 2px;
-      font-weight: 400;
-      color: var(--ink);
-    }
-    .wood-english {
-      font-variant: small-caps;
-      letter-spacing: 0.1em;
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin: 0 0 16px;
-    }
-    .wood-prose { margin-bottom: 14px; }
-    .wood-meta {
-      font-size: 0.88rem;
-      color: var(--muted);
-      font-style: italic;
-      margin: 0;
-    }
-    .wood-meta strong {
-      font-style: normal;
-      font-weight: 500;
-      color: var(--ink);
-    }
-    .wood-meta-sep::before {
-      content: " · ";
-      color: var(--rule);
-      font-style: normal;
-      padding: 0 4px;
-    }
-
-    /* ====== III. ARTICLES ====== */
-    .articles {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      counter-reset: article;
-    }
-    .article {
-      counter-increment: article;
-      padding: 22px 0;
-      border-top: 1px solid var(--rule);
-    }
-    .article:last-child { border-bottom: 1px solid var(--rule); }
-    .article-label {
-      font-style: italic;
-      font-size: 0.84rem;
-      color: var(--gold);
-      letter-spacing: 0.04em;
-      margin-bottom: 6px;
-      display: block;
-    }
-    .article-label::before { content: "Article " counter(article, upper-roman) " — "; }
-    .article p { margin: 0; }
-
-    /* ====== IV. SEASON ====== */
-    .season {
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-      padding: 24px 24px 22px;
-      background: var(--paper-deep);
-      position: relative;
-    }
-    .season-stamp {
-      display: block;
-      font-variant: small-caps;
-      letter-spacing: 0.18em;
-      font-size: 0.76rem;
-      color: var(--muted);
-      margin-bottom: 14px;
-    }
-    .season p {
-      font-style: italic;
-      color: var(--ink);
-      margin: 0;
-      font-size: 1.04rem;
-    }
-
-    /* ====== V. HERITAGE ROLL ====== */
-    .roll {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-variant-numeric: lining-nums;
-    }
-    .roll li {
-      display: grid;
-      grid-template-columns: 7em 1fr;
-      padding: 12px 0;
-      border-top: 1px dotted var(--rule);
-      gap: 20px;
-      align-items: baseline;
-    }
-    .roll li:last-child { border-bottom: 1px dotted var(--rule); }
-    .roll .year {
-      font-style: italic;
-      color: var(--gold);
-    }
-    .roll .desc { margin: 0; }
-    .roll .desc em { color: var(--muted); }
-
-    /* ====== VI. TRUSTEES ====== */
-    .roster-group {
-      margin-bottom: 26px;
-    }
-    .roster-group:last-child { margin-bottom: 0; }
-    .roster-head {
-      font-variant: small-caps;
-      letter-spacing: 0.16em;
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin: 0 0 10px;
-    }
-    .roster {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .roster li {
-      padding: 9px 0;
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 16px;
-      align-items: baseline;
-      border-top: 1px dotted var(--rule);
-    }
-    .roster li:last-child { border-bottom: 1px dotted var(--rule); }
-    .roster .name { font-style: italic; }
-    .roster .place {
-      font-variant: small-caps;
-      letter-spacing: 0.08em;
-      font-size: 0.82rem;
-      color: var(--muted);
-    }
-    .roster-note {
-      margin-top: 20px;
-      font-style: italic;
-      color: var(--muted);
-      font-size: 0.94rem;
-    }
-
-    /* ====== VII. VISITING ====== */
-    .visiting p { margin-bottom: 0; }
-
-    /* ====== VIII. SURVEY FORM ====== */
-    .form-block {
-      border: 1px solid var(--ink);
-      padding: 26px 28px 22px;
-      background: var(--paper-deep);
-      margin: 4px 0 14px;
-      font-size: 0.94rem;
-    }
-    .form-head {
-      text-align: center;
-      font-variant: small-caps;
-      letter-spacing: 0.18em;
-      font-size: 0.76rem;
-      margin: 0 0 6px;
-      color: var(--ink);
-    }
-    .form-est {
-      text-align: center;
-      font-style: italic;
-      font-size: 0.82rem;
-      color: var(--muted);
-      margin: 0 0 22px;
-      padding-bottom: 14px;
-      border-bottom: 1px solid var(--rule);
-    }
-    .form-field {
-      display: grid;
-      grid-template-columns: 10em 1fr;
-      gap: 14px;
-      padding: 9px 0;
-      border-bottom: 1px dashed var(--rule);
-    }
-    .form-field:last-of-type { border-bottom: none; }
-    .form-field .label {
-      font-style: italic;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-    .form-field .value { color: var(--ink); }
-    .form-stamp {
-      margin-top: 18px;
-      padding-top: 12px;
-      border-top: 1px solid var(--rule);
-      text-align: right;
-      font-style: italic;
-      color: var(--muted);
-      font-size: 0.82rem;
-    }
-    .form-caption {
-      font-size: 0.84rem;
-      color: var(--muted);
-      font-style: italic;
-      text-align: center;
-      margin: 0;
-    }
-    @media (max-width: 540px) {
-      .form-field { grid-template-columns: 1fr; gap: 2px; }
-    }
-
-    /* ====== IX. VISITORS' BOOK ====== */
-    .visitors-head {
-      font-variant: small-caps;
-      letter-spacing: 0.14em;
-      font-size: 0.78rem;
-      color: var(--muted);
-      text-align: center;
-      margin: 0 0 18px;
-    }
-    .visitors {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 0.96rem;
-    }
-    .visitors li {
-      padding: 10px 0;
-      border-top: 1px dotted var(--rule);
-      display: grid;
-      grid-template-columns: 6em 12em 1fr;
-      gap: 16px;
-      align-items: baseline;
-    }
-    .visitors li:last-child { border-bottom: 1px dotted var(--rule); }
-    .v-date { font-style: italic; color: var(--muted); font-size: 0.88rem; }
-    .v-name { font-variant: small-caps; letter-spacing: 0.06em; font-size: 0.82rem; }
-    .v-note { color: var(--ink); }
-    .v-note em { color: var(--muted); }
-    @media (max-width: 620px) {
-      .visitors li { grid-template-columns: 1fr; gap: 3px; padding: 14px 0; }
-      .v-date, .v-name { font-size: 0.82rem; }
-    }
-    .visitors-note {
-      margin: 18px 0 0;
-      font-size: 0.86rem;
-      font-style: italic;
-      color: var(--muted);
-    }
-
-    /* ====== X. COLOPHON ====== */
-    .colophon {
-      margin-top: 110px;
-      padding-top: 32px;
-      border-top: 1px solid var(--rule);
-      font-size: 0.92rem;
-      color: var(--muted);
+      padding: 86px 28px 36px;
       text-align: center;
     }
-    .colophon p {
-      margin: 0 auto 1em;
-      max-width: 520px;
-      font-style: italic;
+    .intro p {
+      font-size: 1.18rem;
+      color: var(--ink-soft);
+      line-height: 1.55;
     }
-    .colophon .corr {
-      margin: 26px auto 0;
-      font-style: normal;
-      font-size: 0.9rem;
+    .intro p:first-child {
+      font-style: italic;
+      font-family: var(--display);
       color: var(--ink);
-      max-width: 360px;
+      font-size: 1.42rem;
+      line-height: 1.4;
+      margin-bottom: 22px;
     }
-    .colophon .corr a {
-      font-style: italic;
+
+    /* Europe map section */
+    .europe-section { padding: 56px 0 24px; }
+    .europe-section .lede {
+      text-align: center;
+      max-width: 540px;
+      margin: 0 auto 36px;
     }
-    .colophon .imprint {
-      margin: 32px 0 0;
-      font-style: normal;
-      font-variant: small-caps;
-      letter-spacing: 0.22em;
-      font-size: 0.74rem;
-      color: var(--muted);
-    }
-    .colophon .ornament-end {
+    .europe-section .eyebrow {
       display: block;
       text-align: center;
-      color: var(--gold);
-      margin: 6px auto 0;
-      font-size: 1rem;
-      letter-spacing: 0.6em;
-      padding-left: 0.6em;
+      margin: 0 0 8px;
+      color: var(--gold-deep);
     }
-
-    /* Section break ornament (decorative ✦) */
-    .section-rule {
+    .europe-section h2 {
       text-align: center;
-      color: var(--gold);
-      letter-spacing: 0.7em;
-      padding-left: 0.7em;
-      font-size: 0.78rem;
-      margin: 90px 0 60px;
-      opacity: 0.7;
+      font-size: clamp(1.8rem, 3vw, 2.4rem);
+      margin: 0 0 14px;
     }
 
-    /* ====== PRINT ====== */
-    @media print {
-      :root {
-        --paper: #fff;
-        --paper-deep: #fff;
-        --ink: #000;
-        --muted: #333;
-        --gold: #000;
-        --gold-soft: #000;
-        --rule: rgba(0,0,0,0.4);
-        --rule-soft: rgba(0,0,0,0.2);
-      }
-      body::before { display: none; }
-      body { font-size: 11pt; }
-      .page { padding: 0; max-width: 100%; }
-      a { color: #000; border-bottom: none; }
-      section { page-break-inside: avoid; }
-      .section-title::after { background: #000; }
+    /* Map SVG styling */
+    .europe-map .land {
+      fill: var(--paper-deep);
+      stroke: var(--ink-soft);
+      stroke-width: 1.4;
+      stroke-linejoin: round;
+    }
+    .europe-map .sea {
+      fill: rgba(90, 116, 128, 0.10);
+    }
+    .europe-map .sea-line {
+      fill: none;
+      stroke: rgba(90, 116, 128, 0.4);
+      stroke-width: 0.7;
+      stroke-dasharray: 2 4;
+    }
+    .europe-map .pin-line {
+      stroke: var(--ink);
+      stroke-width: 1;
+      fill: none;
+    }
+    .europe-map .country-label {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 11px;
+      fill: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .europe-map .compass circle {
+      fill: var(--paper-warm);
+      stroke: var(--ink);
+      stroke-width: 1;
+    }
+    .europe-map .compass path {
+      fill: var(--ink);
+    }
+    .europe-map .compass text {
+      font-family: var(--display);
+      font-size: 9px;
+      fill: var(--ink);
+      text-anchor: middle;
+    }
+    .europe-map .cartouche {
+      fill: var(--paper);
+      stroke: var(--ink);
+      stroke-width: 1.2;
+    }
+    .europe-map .cartouche-text {
+      font-family: var(--display);
+      font-size: 12px;
+      fill: var(--ink);
+      font-style: italic;
+      text-anchor: middle;
+    }
+    .europe-map .cartouche-sub {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 9px;
+      fill: var(--muted);
+      text-anchor: middle;
     }
 
-    /* ====== RESPONSIVE: tighten margins on small screens ====== */
-    @media (max-width: 540px) {
-      body { font-size: 17.5px; }
-      .page { padding: 56px 22px 80px; }
-      .title-block { margin-bottom: 64px; }
-      .contents { margin-bottom: 72px; }
-      .section-rule { margin: 60px 0 40px; }
-      .dropcap::first-letter { font-size: 3em; }
+    /* Atlas inset */
+    .atlas-aside {
+      max-width: 980px;
+      margin: 72px auto 0;
+      padding: 0 28px;
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 36px;
+      align-items: center;
     }
-
+    @media (max-width: 700px) {
+      .atlas-aside { grid-template-columns: 1fr; }
+    }
+    .atlas-aside img {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--rule);
+      padding: 8px;
+      background: var(--paper-warm);
+      box-shadow: 0 18px 40px -22px rgba(31,26,18,0.4);
+      transform: rotate(-1deg);
+    }
+    .atlas-aside .caption .eyebrow { display: block; margin-bottom: 10px; }
+    .atlas-aside .caption h3 { font-size: 1.5rem; margin-bottom: 12px; }
+    .atlas-aside .caption p { color: var(--ink-soft); margin: 0; }
   </style>
 </head>
 <body>
 
-  <article class="page">
+  <!-- ============ NAV ============ -->
+  <header class="topnav">
+    <div class="topnav-inner">
+      <a class="topnav-brand" href="/">
+        <svg viewBox="0 0 32 32" aria-hidden="true">
+          <polygon points="16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5" fill="none" stroke="#B47A0A" stroke-width="1.4"/>
+          <polygon points="16,9 23,13 23,21 16,25 9,21 9,13" fill="#B47A0A" opacity="0.25"/>
+          <polygon points="16,14 21,16.5 21,20.5 16,23 11,20.5 11,16.5" fill="#B47A0A"/>
+        </svg>
+        <span class="name">Honeypot Quarters</span>
+      </a>
+      <button class="topnav-toggle" id="navToggle" aria-expanded="false">Menu</button>
+      <ul class="topnav-links" id="navLinks">
+        <li><a class="is-current" href="/">The Map</a></li>
+        <li><a href="/charter">The Charter</a></li>
+        <li><a href="/trustees">Trustees</a></li>
+        <li><a href="/visit">Visit</a></li>
+        <li><a href="/visitors-book">The Book</a></li>
+      </ul>
+    </div>
+  </header>
 
-    <header class="title-block">
-      <svg class="title-mark" width="46" height="40" viewBox="0 0 46 40" aria-hidden="true">
-        <polygon points="23,2 43,12 43,28 23,38 3,28 3,12" fill="none" stroke="#B47A0A" stroke-width="1.3"/>
-        <polygon points="23,9 36,15.5 36,24.5 23,31 10,24.5 10,15.5" fill="#B47A0A" opacity="0.16"/>
-        <polygon points="23,15 30,18.5 30,22.5 23,26 16,22.5 16,18.5" fill="#B47A0A" opacity="0.55"/>
-      </svg>
-      <h1 class="trust-name">Honeypot Quarters Limited</h1>
-      <p class="trust-tag">A trust of five woods, in five countries</p>
-      <p class="annual-notice">Annual Notice &middot; May MMXXVI</p>
-    </header>
+  <main>
 
-    <nav class="contents" aria-label="Contents">
-      <p class="contents-title">Contents</p>
-      <ol>
-        <li><a href="#trust"><span class="num">I.</span><span class="text">The Trust</span></a></li>
-        <li><a href="#woods"><span class="num">II.</span><span class="text">The Five Woods</span></a></li>
-        <li><a href="#code"><span class="num">III.</span><span class="text">The Code of the Wood</span></a></li>
-        <li><a href="#season"><span class="num">IV.</span><span class="text">Notes for the Season</span></a></li>
-        <li><a href="#heritage"><span class="num">V.</span><span class="text">A Hundred Years, in Short</span></a></li>
-        <li><a href="#roster"><span class="num">VI.</span><span class="text">Trustees &amp; Wardens</span></a></li>
-        <li><a href="#visiting"><span class="num">VII.</span><span class="text">On Visiting</span></a></li>
-        <li><a href="#form"><span class="num">VIII.</span><span class="text">The 1927 Survey Form</span></a></li>
-        <li><a href="#book"><span class="num">IX.</span><span class="text">From the Visitors&rsquo; Book</span></a></li>
-        <li><a href="#colophon"><span class="num">X.</span><span class="text">Colophon &amp; Correspondence</span></a></li>
-      </ol>
-    </nav>
-
-    <!-- ====== I. THE TRUST ====== -->
-    <section id="trust">
-      <h2 class="section-title"><span class="num">I.</span>The Trust</h2>
-
-      <p class="dropcap">Honeypot Quarters Limited was founded in the autumn of 1926 by a small consortium of Sussex foresters, a county librarian, and a single anonymous benefactor whose only instruction was that the woods be kept &ldquo;as they are, or better.&rdquo; That instruction has guided every decision of the trust since.</p>
-
-      <p>The trust holds five woodlands, each of one hundred acres, in five countries. It does not own anything else. It does not, by its constitution, do anything else. It is governed by five trustees and tended by five resident wardens, and meets in person, once a year, at Hartfield in Sussex, on the first Saturday of November.</p>
-
-      <p>There is no commercial activity, save the Andalusian cork harvest and the Sussex Sunday teas.<sup class="fn"><a href="#fn1" id="ref1">1</a></sup> The woods are open. There is no charge. The trust has, for one hundred years, considered this sufficient.</p>
-
-      <ol class="footnotes">
-        <li id="fn1">The teas, served at the warden&rsquo;s lodge from three to five o&rsquo;clock between Easter and Michaelmas, are provided at cost and are not, strictly, a commercial activity. The trust raises no objection to the distinction. <a href="#ref1" class="back" aria-label="Back to text">&larrhk;</a></li>
-      </ol>
-    </section>
-
-    <div class="section-rule" aria-hidden="true">✦ ✦ ✦</div>
-
-    <!-- ====== II. THE FIVE WOODS ====== -->
-    <section id="woods">
-      <h2 class="section-title"><span class="num">II.</span>The Five Woods</h2>
-
-      <ol class="woods">
-
-        <li class="wood">
-          <p class="wood-number"></p>
-          <h3 class="wood-name">The Hundred Acre Wood</h3>
-          <p class="wood-english">Sussex, England &middot; The Original</p>
-          <p class="wood-prose">The wood from which the trust takes its name, and the only wood named in the founding charter. Hornbeam and English oak across the lower slopes, bracken on the open ground, and a bee tree of considerable age standing near the western boundary. The rope bridges spanning the dell are replaced each spring by the warden, by hand.<sup class="fn"><a href="#fn2" id="ref2">2</a></sup></p>
-          <p class="wood-meta"><strong>Founded</strong> 1926<span class="wood-meta-sep"></span><strong>Acreage</strong> 100<span class="wood-meta-sep"></span><strong>Warden</strong> Mr R. Hartfield (the elder)<span class="wood-meta-sep"></span><strong>Open</strong> daily, dawn to dusk</p>
-        </li>
-
-        <li class="wood">
-          <p class="wood-number"></p>
-          <h3 class="wood-name">Le Bois de Cent Acres</h3>
-          <p class="wood-english">Dordogne, France &middot; Acquired 1948</p>
-          <p class="wood-prose">Sweet chestnut and walnut on a limestone shelf above the river. A monastic pilgrim path crosses the wood from east to west and has been kept open, unbroken, since the twelfth century &mdash; a condition of the trust&rsquo;s purchase from the Périgord commune. A single beehive, maintained on behalf of the commune since 1951, stands at the path&rsquo;s northern bend.</p>
-          <p class="wood-meta"><strong>Acquired</strong> 1948<span class="wood-meta-sep"></span><strong>Acreage</strong> 100<span class="wood-meta-sep"></span><strong>Warden</strong> Mme C. Lebrun<span class="wood-meta-sep"></span><strong>Open</strong> daily, dawn to dusk</p>
-        </li>
-
-        <li class="wood">
-          <p class="wood-number"></p>
-          <h3 class="wood-name">El Bosque de las Cien Acres</h3>
-          <p class="wood-english">Andalusia, Spain &middot; The Cork Wood &middot; Acquired 1972</p>
-          <p class="wood-prose">Cork oak and umbrella pine on warm Andalucían hillside in the Sierra de Aracena. The cork is harvested by hand every ninth year, on the cycle established before the trust&rsquo;s purchase, and returned to local cooperatives. An Iberian lynx has been recorded in the wood on three separate occasions, the most recent in 2023.</p>
-          <p class="wood-meta"><strong>Acquired</strong> 1972<span class="wood-meta-sep"></span><strong>Acreage</strong> 100<span class="wood-meta-sep"></span><strong>Warden</strong> Sr. M. Vega Carrasco<span class="wood-meta-sep"></span><strong>Open</strong> daily, dawn to dusk</p>
-        </li>
-
-        <li class="wood">
-          <p class="wood-number"></p>
-          <h3 class="wood-name">Il Bosco dei Cento Acri</h3>
-          <p class="wood-english">Tuscany, Italy &middot; The Stone Wood &middot; Acquired 1989</p>
-          <p class="wood-prose">Holm oak and umbrella pine in the Val d&rsquo;Orcia, and at the wood&rsquo;s centre the ruin of a fourteenth-century chapel that is, by deliberate policy of the trust, kept as ruin.<sup class="fn"><a href="#fn3" id="ref3">3</a></sup> An old pilgrim path crosses the property, marked by no signs and maintained by no one in particular.</p>
-          <p class="wood-meta"><strong>Acquired</strong> 1989<span class="wood-meta-sep"></span><strong>Acreage</strong> 100<span class="wood-meta-sep"></span><strong>Warden</strong> Sig. T. Bellini (also trustee)<span class="wood-meta-sep"></span><strong>Open</strong> daily, dawn to dusk</p>
-        </li>
-
-        <li class="wood">
-          <p class="wood-number"></p>
-          <h3 class="wood-name">Сто-Акровый Лес</h3>
-          <p class="wood-english">Krasnodar Krai, Russia &middot; The Western Caucasus &middot; Acquired 2004</p>
-          <p class="wood-prose">Caucasian beech and silver fir on the northern slopes; the oldest of the five woods by tree-age, with specimens recorded at more than four hundred years. The trust&rsquo;s longest acquisition: eleven years of negotiation, first letter to final deed. Closed during the winter months on the warden&rsquo;s recommendation.</p>
-          <p class="wood-meta"><strong>Acquired</strong> 2004<span class="wood-meta-sep"></span><strong>Acreage</strong> 100<span class="wood-meta-sep"></span><strong>Warden</strong> Mr P. Volkov<span class="wood-meta-sep"></span><strong>Open</strong> May–October, daylight hours</p>
-        </li>
-
-      </ol>
-
-      <ol class="footnotes">
-        <li id="fn2">The original bridges, of 1927, were replaced annually until 1971, at which point a sturdier pattern was adopted; this pattern, with minor refinements, is the one in use today. <a href="#ref2" class="back" aria-label="Back to text">&larrhk;</a></li>
-        <li id="fn3">A proposal in 1994 to restore the chapel was unanimously rejected. The trust&rsquo;s position, recorded in the minutes, was that &ldquo;a ruin is a thing in its own right.&rdquo; <a href="#ref3" class="back" aria-label="Back to text">&larrhk;</a></li>
-      </ol>
-    </section>
-
-    <div class="section-rule" aria-hidden="true">✦ ✦ ✦</div>
-
-    <!-- ====== III. THE CODE ====== -->
-    <section id="code">
-      <h2 class="section-title"><span class="num">III.</span>The Code of the Wood</h2>
-
-      <p style="text-align:center; font-style: italic; color: var(--muted); max-width: 480px; margin: 0 auto 36px;">The founding charter is short. These are its five provisions, in plain English, and printed on the back of every visitor&rsquo;s map.</p>
-
-      <ol class="articles">
-        <li class="article">
-          <span class="article-label"></span>
-          <p>Leave it as you found it. If you must change something, change it for the better.</p>
-        </li>
-        <li class="article">
-          <span class="article-label"></span>
-          <p>The wood is not a product. No timber shall be sold; no acre shall be enclosed; no commercial use shall be made of the land, save the Andalusian cork harvest and the Sussex Sunday teas.</p>
-        </li>
-        <li class="article">
-          <span class="article-label"></span>
-          <p>Visitors are guests. The woods shall be open, freely, in daylight, in all seasons in which they are open. Wardens are present to assist, not to charge.</p>
-        </li>
-        <li class="article">
-          <span class="article-label"></span>
-          <p>Wildlife comes first. If a path disturbs a sett, the path is moved. If a tree falls across a track, it is sawn through and left in place.</p>
-        </li>
-        <li class="article">
-          <span class="article-label"></span>
-          <p>Survey every year. Each wood shall be walked end-to-end every autumn by its warden and a trustee, and the survey filed at the Sussex lodge. The survey is to be one page long, and not longer.</p>
-        </li>
-      </ol>
-    </section>
-
-    <div class="section-rule" aria-hidden="true">✦ ✦ ✦</div>
-
-    <!-- ====== IV. SEASON ====== -->
-    <section id="season">
-      <h2 class="section-title"><span class="num">IV.</span>Notes for the Season</h2>
-
-      <div class="season">
-        <span class="season-stamp">May MMXXVI</span>
-        <p>It is May. In Sussex, the bluebells are over and the bracken is up. In the Dordogne, the chestnuts are in leaf and the bees are at the lime. The cork in Andalusia is one year from its next harvest. The chapel at Tuscany is, as ever, ruined. Krasnodar has been open for the season since the second of the month.</p>
+    <!-- ============ HERO ============ -->
+    <section class="hero-photo">
+      <img src="/img/home-hero.jpg" alt="A faint grass path leading into an English wood at golden hour" loading="eager">
+      <div class="hero-photo-text">
+        <h1>Honeypot Quarters</h1>
+        <p class="tag">A trust of five woods, in five countries — kept in perpetuity since one thousand nine hundred and twenty-six.</p>
+        <span class="est">Est. MCMXXVI</span>
       </div>
     </section>
 
-    <div class="section-rule" aria-hidden="true">✦ ✦ ✦</div>
-
-    <!-- ====== V. HERITAGE ====== -->
-    <section id="heritage">
-      <h2 class="section-title"><span class="num">V.</span>A Hundred Years, in Short</h2>
-
-      <ol class="roll">
-        <li><span class="year">1926</span><p class="desc">The trust is founded at Hartfield, Sussex.</p></li>
-        <li><span class="year">1927</span><p class="desc">The first annual survey is filed (reproduced at §VIII).</p></li>
-        <li><span class="year">1939–45</span><p class="desc">Surveys continue, on shortened forms, throughout the war. <em>The wartime forms are kept separately at the lodge.</em></p></li>
-        <li><span class="year">1948</span><p class="desc">Le Bois de Cent Acres is purchased from the Périgord commune.</p></li>
-        <li><span class="year">1971</span><p class="desc">The Sussex rope bridges are redesigned, for the first and last time.</p></li>
-        <li><span class="year">1972</span><p class="desc">El Bosque de las Cien Acres is acquired from a cork-farming cooperative.</p></li>
-        <li><span class="year">1989</span><p class="desc">Il Bosco dei Cento Acri is bequeathed by the estate of a former trustee.</p></li>
-        <li><span class="year">1994</span><p class="desc">A proposal to restore the Tuscany chapel is unanimously rejected.</p></li>
-        <li><span class="year">2004</span><p class="desc">Сто-Акровый Лес joins the trust, after eleven years of negotiation.</p></li>
-        <li><span class="year">2023</span><p class="desc">An Iberian lynx is recorded in Andalusia for the third time.</p></li>
-        <li><span class="year">2026</span><p class="desc">The trust marks its centenary. This notice is published.</p></li>
-      </ol>
+    <!-- ============ INTRO ============ -->
+    <section class="intro">
+      <p>The trust owns five woodlands, each of one hundred acres, in five countries — and nothing else.</p>
+      <p>This is its atlas. There is a wood in Sussex, one in the Dordogne, one in Andalusia, one in Tuscany, and one on the northern slopes of the western Caucasus. Each is open, daylight hours, freely, to anyone who goes gently. Choose a wood on the map below, or read the charter we keep them under.</p>
     </section>
 
-    <div class="section-rule" aria-hidden="true">✦ ✦ ✦</div>
+    <!-- ============ EUROPE MAP ============ -->
+    <section class="europe-section">
+      <div class="europe">
+        <div class="europe-frame">
+          <svg class="europe-map" viewBox="0 0 1000 620" xmlns="http://www.w3.org/2000/svg" aria-label="Map of Europe showing the five woods of Honeypot Quarters">
 
-    <!-- ====== VI. TRUSTEES & WARDENS ====== -->
-    <section id="roster">
-      <h2 class="section-title"><span class="num">VI.</span>Trustees &amp; Wardens</h2>
+            <!-- Sea -->
+            <rect class="sea" width="1000" height="620"/>
 
-      <div class="roster-group">
-        <p class="roster-head">Trustees</p>
-        <ol class="roster">
-          <li><span class="name">Eleanor Hartfield <em style="color: var(--muted)">(Chair)</em></span><span class="place">Sussex</span></li>
-          <li><span class="name">Pascal Mareuil</span><span class="place">Dordogne</span></li>
-          <li><span class="name">Inés Vega Carrasco</span><span class="place">Andalusia</span></li>
-          <li><span class="name">Tommaso Bellini</span><span class="place">Tuscany</span></li>
-          <li><span class="name">Sofia Aleksandrovna Volkova</span><span class="place">Krasnodar</span></li>
-        </ol>
+            <!-- Dashed sea grid lines for old-map feel -->
+            <g class="sea-line">
+              <line x1="0" y1="155" x2="1000" y2="155"/>
+              <line x1="0" y1="310" x2="1000" y2="310"/>
+              <line x1="0" y1="465" x2="1000" y2="465"/>
+              <line x1="250" y1="0" x2="250" y2="620"/>
+              <line x1="500" y1="0" x2="500" y2="620"/>
+              <line x1="750" y1="0" x2="750" y2="620"/>
+            </g>
+
+            <!-- Mainland Europe (one big loose shape) -->
+            <path class="land" d="
+              M 295 195
+              C 320 180, 360 175, 400 178
+              C 440 178, 478 170, 515 168
+              C 555 166, 600 168, 645 172
+              C 690 178, 740 185, 790 195
+              C 830 205, 870 218, 895 235
+              C 910 250, 905 280, 890 305
+              C 875 322, 845 332, 815 340
+              C 780 348, 740 350, 700 350
+              C 660 350, 620 354, 585 360
+              C 555 365, 535 380, 510 392
+              C 480 405, 450 408, 425 402
+              C 400 395, 380 380, 365 360
+              C 350 340, 335 322, 322 302
+              C 308 282, 298 258, 290 235
+              C 285 218, 285 205, 295 195 Z
+            "/>
+
+            <!-- Scandinavia -->
+            <path class="land" d="
+              M 540 50
+              C 555 40, 580 38, 600 45
+              C 620 55, 632 78, 638 105
+              C 642 130, 638 155, 625 170
+              C 612 178, 598 178, 588 170
+              C 580 158, 575 142, 570 125
+              C 565 105, 558 88, 548 75
+              C 540 65, 535 58, 540 50 Z
+            "/>
+
+            <!-- British Isles -->
+            <path class="land" d="
+              M 260 160
+              C 275 155, 290 158, 298 175
+              C 305 195, 305 220, 298 240
+              C 290 258, 275 268, 260 265
+              C 248 258, 240 240, 240 220
+              C 240 198, 245 178, 252 168
+              C 256 162, 258 160, 260 160 Z
+            "/>
+
+            <!-- Ireland -->
+            <path class="land" d="
+              M 200 195
+              C 212 192, 222 198, 225 215
+              C 226 232, 220 245, 210 245
+              C 200 243, 192 235, 190 220
+              C 190 208, 194 198, 200 195 Z
+            "/>
+
+            <!-- Iberia -->
+            <path class="land" d="
+              M 200 380
+              C 225 370, 260 372, 290 380
+              C 310 390, 318 415, 310 440
+              C 300 460, 275 472, 245 472
+              C 215 470, 188 458, 178 435
+              C 172 415, 178 392, 195 382
+              C 197 381, 199 381, 200 380 Z
+            "/>
+
+            <!-- Italy boot -->
+            <path class="land" d="
+              M 462 330
+              L 470 360
+              L 475 390
+              L 478 420
+              L 482 445
+              L 478 460
+              L 470 458
+              L 460 442
+              L 455 425
+              L 460 408
+              Q 454 392, 452 375
+              L 450 350
+              Z
+            "/>
+
+            <!-- Sicily -->
+            <path class="land" d="
+              M 430 470
+              L 450 472
+              L 455 482
+              L 440 484
+              L 425 478
+              Z
+            "/>
+
+            <!-- Black Sea hint -->
+            <path class="sea" d="M 700 285 Q 760 270 820 285 Q 830 305 800 325 Q 760 330 720 320 Q 695 308 700 285 Z" opacity="0.45"/>
+
+            <!-- Country labels (subtle) -->
+            <text class="country-label" x="270" y="145">Britannia</text>
+            <text class="country-label" x="240" y="430">Hispania</text>
+            <text class="country-label" x="395" y="250">Gallia</text>
+            <text class="country-label" x="478" y="395">Italia</text>
+            <text class="country-label" x="680" y="240">Sarmatia</text>
+            <text class="country-label" x="555" y="100">Scandia</text>
+
+            <!-- Pin connector lines, drawn before pins so pins sit on top -->
+            <g class="pin-line">
+              <line x1="278" y1="218" x2="340" y2="118"/>
+              <line x1="380" y1="298" x2="465" y2="208"/>
+              <line x1="248" y1="420" x2="135" y2="500"/>
+              <line x1="473" y1="385" x2="565" y2="478"/>
+              <line x1="800" y1="300" x2="880" y2="155"/>
+            </g>
+
+            <!-- PINS -->
+            <a href="/sussex" aria-label="The Hundred Acre Wood, Sussex">
+              <g class="pin">
+                <circle class="pin-dot" cx="278" cy="218" r="7"/>
+                <text class="pin-label"      x="345" y="115">I. The Hundred Acre Wood</text>
+                <text class="pin-label-sub"  x="345" y="129">Sussex · The original · 1926</text>
+              </g>
+            </a>
+
+            <a href="/dordogne" aria-label="Le Bois de Cent Acres, Dordogne">
+              <g class="pin">
+                <circle class="pin-dot" cx="380" cy="298" r="7"/>
+                <text class="pin-label"      x="470" y="205">II. Le Bois de Cent Acres</text>
+                <text class="pin-label-sub"  x="470" y="219">Dordogne · Acquired 1948</text>
+              </g>
+            </a>
+
+            <a href="/andalusia" aria-label="El Bosque de las Cien Acres, Andalusia">
+              <g class="pin">
+                <circle class="pin-dot" cx="248" cy="420" r="7"/>
+                <text class="pin-label"      x="32"  y="497">III. El Bosque de las Cien Acres</text>
+                <text class="pin-label-sub"  x="32"  y="511">Andalusia · Cork &amp; pine · 1972</text>
+              </g>
+            </a>
+
+            <a href="/tuscany" aria-label="Il Bosco dei Cento Acri, Tuscany">
+              <g class="pin">
+                <circle class="pin-dot" cx="473" cy="385" r="7"/>
+                <text class="pin-label"      x="568" y="475">IV. Il Bosco dei Cento Acri</text>
+                <text class="pin-label-sub"  x="568" y="489">Tuscany · The stone wood · 1989</text>
+              </g>
+            </a>
+
+            <a href="/krasnodar" aria-label="Sto-Akrovyi Les, Krasnodar">
+              <g class="pin">
+                <circle class="pin-dot" cx="800" cy="300" r="7"/>
+                <text class="pin-label"      x="775" y="152">V. Сто-Акровый Лес</text>
+                <text class="pin-label-sub"  x="775" y="166">Krasnodar · Western Caucasus · 2004</text>
+              </g>
+            </a>
+
+            <!-- Compass rose -->
+            <g class="compass" transform="translate(925, 540)">
+              <circle r="34" fill="rgba(242,232,207,0.85)"/>
+              <path d="M 0 -28 L 5 0 L 0 28 L -5 0 Z"/>
+              <path d="M -28 0 L 0 5 L 28 0 L 0 -5 Z" opacity="0.4"/>
+              <text y="-37">N</text>
+              <text y="44">S</text>
+              <text x="-38" y="3">W</text>
+              <text x="38" y="3">E</text>
+            </g>
+
+            <!-- Cartouche -->
+            <g transform="translate(60, 550)">
+              <rect class="cartouche" x="0" y="0" width="220" height="56" rx="2"/>
+              <text class="cartouche-text" x="110" y="22">The Five Woods of</text>
+              <text class="cartouche-text" x="110" y="38">Honeypot Quarters</text>
+              <text class="cartouche-sub" x="110" y="52">drawn at Hartfield · MMXXVI</text>
+            </g>
+
+          </svg>
+          <p class="europe-caption">Choose a wood to enter</p>
+          <p class="europe-sub">Each pin opens that wood&rsquo;s page — its map, its features, its warden.</p>
+        </div>
       </div>
 
-      <div class="roster-group">
-        <p class="roster-head">Resident Wardens</p>
-        <ol class="roster">
-          <li><span class="name">Robert Hartfield <em style="color: var(--muted)">(the elder)</em></span><span class="place">Sussex</span></li>
-          <li><span class="name">Camille Lebrun</span><span class="place">Dordogne</span></li>
-          <li><span class="name">Marco Vega Carrasco</span><span class="place">Andalusia</span></li>
-          <li><span class="name">Tommaso Bellini <em style="color: var(--muted)">(and trustee)</em></span><span class="place">Tuscany</span></li>
-          <li><span class="name">Pavel Volkov</span><span class="place">Krasnodar</span></li>
-        </ol>
+      <!-- Atlas aside -->
+      <div class="atlas-aside">
+        <img src="/img/atlas-detail.jpg" alt="An open antique atlas of western Europe, with a brass compass and a dried oak leaf laid across the page">
+        <div class="caption">
+          <span class="eyebrow">From the Sussex archive</span>
+          <h3>The atlas, kept at the lodge.</h3>
+          <p>The trust holds a single bound atlas, dated 1834, on a wooden lectern at the Sussex warden&rsquo;s lodge. Each property was marked on its page on the day of acquisition, in the same pencil, by the warden on duty. The pencil has been replaced four times.</p>
+        </div>
       </div>
-
-      <p class="roster-note">The trust is small. Several of its officers are related, by blood, marriage, or proximity. This is acknowledged.</p>
     </section>
 
-    <div class="section-rule" aria-hidden="true">✦ ✦ ✦</div>
+    <!-- ============ WOODS GRID ============ -->
+    <section class="wrap" style="padding-top: 96px;">
+      <h2 class="section-h" style="text-align:center; margin-bottom: 6px;">The Five Woods</h2>
+      <p style="text-align:center; color: var(--muted); font-style: italic; max-width: 480px; margin: 0 auto 36px;">One hundred acres each. One warden each. The same charter, since 1926.</p>
 
-    <!-- ====== VII. VISITING ====== -->
-    <section id="visiting" class="visiting">
-      <h2 class="section-title"><span class="num">VII.</span>On Visiting</h2>
+      <div class="woods-grid">
 
-      <p>There is no admission charge, no booking, and no map to download. Maps, where they exist, are kept at each warden&rsquo;s lodge and are yours to take. There are no signs at the gates beyond the wood&rsquo;s name. Dogs welcome, on leads, in all five woods; bicycles on marked tracks only, in Sussex and Krasnodar.</p>
+        <a class="wood-card wood--sussex" href="/sussex">
+          <svg class="sigil" width="44" height="48" viewBox="0 0 44 48" aria-hidden="true" style="color: var(--accent);">
+            <polygon class="sigil-cell" points="22,3 41,13 41,35 22,45 3,35 3,13"/>
+            <polygon class="sigil-inner" points="22,8 36,15 36,33 22,40 8,33 8,15"/>
+            <!-- bee -->
+            <ellipse class="sigil-emblem" cx="22" cy="24" rx="5" ry="3.2"/>
+            <path class="sigil-emblem" d="M19 24 L25 24 M20 22.5 L24 22.5 M20 25.5 L24 25.5" stroke="currentColor" stroke-width="0.6" fill="none" opacity="0.5"/>
+            <ellipse fill="none" stroke="currentColor" stroke-width="0.8" cx="18" cy="22" rx="3" ry="1.5" transform="rotate(-30 18 22)"/>
+            <ellipse fill="none" stroke="currentColor" stroke-width="0.8" cx="26" cy="22" rx="3" ry="1.5" transform="rotate(30 26 22)"/>
+          </svg>
+          <span class="roman">I.</span>
+          <h3>The Hundred Acre Wood</h3>
+          <span class="where">Sussex, England</span>
+        </a>
 
-      <p style="margin-top: 1em;">Please go gently, follow the paths where they exist, and leave the wood as you found it. Or, if you must, better.</p>
-    </section>
+        <a class="wood-card wood--dordogne" href="/dordogne">
+          <svg class="sigil" width="44" height="48" viewBox="0 0 44 48" aria-hidden="true" style="color: var(--accent);">
+            <polygon class="sigil-cell" points="22,3 41,13 41,35 22,45 3,35 3,13"/>
+            <polygon class="sigil-inner" points="22,8 36,15 36,33 22,40 8,33 8,15"/>
+            <!-- chestnut leaf -->
+            <path class="sigil-emblem" d="M22 14 L22 34 M22 18 Q16 20 17 24 Q22 24 22 21 M22 21 Q28 20 27 24 Q22 24 22 21 M22 25 Q14 26 16 31 Q22 31 22 28 M22 28 Q30 26 28 31 Q22 31 22 28" stroke="currentColor" stroke-width="0.6" fill="currentColor" opacity="0.8"/>
+          </svg>
+          <span class="roman">II.</span>
+          <h3>Le Bois de Cent Acres</h3>
+          <span class="where">Dordogne, France</span>
+        </a>
 
-    <div class="section-rule" aria-hidden="true">✦ ✦ ✦</div>
+        <a class="wood-card wood--andalusia" href="/andalusia">
+          <svg class="sigil" width="44" height="48" viewBox="0 0 44 48" aria-hidden="true" style="color: var(--accent);">
+            <polygon class="sigil-cell" points="22,3 41,13 41,35 22,45 3,35 3,13"/>
+            <polygon class="sigil-inner" points="22,8 36,15 36,33 22,40 8,33 8,15"/>
+            <!-- acorn -->
+            <ellipse class="sigil-emblem" cx="22" cy="26" rx="4" ry="5.5"/>
+            <path d="M17 21 Q22 17 27 21 Q26 23 22 23 Q18 23 17 21 Z" class="sigil-emblem"/>
+            <line x1="22" y1="14" x2="22" y2="18" stroke="currentColor" stroke-width="1"/>
+          </svg>
+          <span class="roman">III.</span>
+          <h3>El Bosque de las Cien Acres</h3>
+          <span class="where">Andalusia, Spain</span>
+        </a>
 
-    <!-- ====== VIII. THE 1927 SURVEY FORM ====== -->
-    <section id="form">
-      <h2 class="section-title"><span class="num">VIII.</span>The 1927 Survey Form</h2>
+        <a class="wood-card wood--tuscany" href="/tuscany">
+          <svg class="sigil" width="44" height="48" viewBox="0 0 44 48" aria-hidden="true" style="color: var(--accent);">
+            <polygon class="sigil-cell" points="22,3 41,13 41,35 22,45 3,35 3,13"/>
+            <polygon class="sigil-inner" points="22,8 36,15 36,33 22,40 8,33 8,15"/>
+            <!-- ruined column -->
+            <rect class="sigil-emblem" x="20" y="16" width="4" height="14"/>
+            <rect class="sigil-emblem" x="18" y="14" width="8" height="2.5"/>
+            <rect class="sigil-emblem" x="17" y="30" width="10" height="3"/>
+            <path class="sigil-emblem" d="M16 33 L28 33 L26 36 L18 36 Z"/>
+            <!-- crack -->
+            <path d="M22 18 L21 22 L23 26" stroke="var(--paper)" stroke-width="0.6" fill="none"/>
+          </svg>
+          <span class="roman">IV.</span>
+          <h3>Il Bosco dei Cento Acri</h3>
+          <span class="where">Tuscany, Italy</span>
+        </a>
 
-      <div class="form-block" role="note" aria-label="Reproduction of the 1927 annual survey form">
-        <p class="form-head">Annual Survey of Wood &middot; Honeypot Quarters Limited</p>
-        <p class="form-est">Est. MCMXXVI &middot; Form A &middot; one page only</p>
+        <a class="wood-card wood--krasnodar" href="/krasnodar">
+          <svg class="sigil" width="44" height="48" viewBox="0 0 44 48" aria-hidden="true" style="color: var(--accent);">
+            <polygon class="sigil-cell" points="22,3 41,13 41,35 22,45 3,35 3,13"/>
+            <polygon class="sigil-inner" points="22,8 36,15 36,33 22,40 8,33 8,15"/>
+            <!-- fir cone -->
+            <ellipse class="sigil-emblem" cx="22" cy="24" rx="3.5" ry="7"/>
+            <path d="M19 19 Q22 21 25 19 M19 22 Q22 24 25 22 M19 25 Q22 27 25 25 M20 28 Q22 30 24 28" stroke="var(--paper)" stroke-width="0.6" fill="none"/>
+            <line x1="22" y1="15" x2="22" y2="17" stroke="currentColor" stroke-width="1.2"/>
+          </svg>
+          <span class="roman">V.</span>
+          <h3>Сто-Акровый Лес</h3>
+          <span class="where">Krasnodar, Russia</span>
+        </a>
 
-        <div class="form-field"><span class="label">Wood</span><span class="value">The Hundred Acre Wood, Sussex</span></div>
-        <div class="form-field"><span class="label">Acreage</span><span class="value">100, unchanged</span></div>
-        <div class="form-field"><span class="label">Warden</span><span class="value">R. Hartfield</span></div>
-        <div class="form-field"><span class="label">Date of survey</span><span class="value">9 October 1927</span></div>
-        <div class="form-field"><span class="label">Trees in good order</span><span class="value">Yes</span></div>
-        <div class="form-field"><span class="label">Paths in good order</span><span class="value">Yes</span></div>
-        <div class="form-field"><span class="label">Wildlife observed</span><span class="value">Roe deer; tawny owl; one bear (seen near the bee tree)</span></div>
-        <div class="form-field"><span class="label">Incident to report</span><span class="value">None</span></div>
-        <div class="form-field"><span class="label">Signed</span><span class="value"><em>R. Hartfield</em></span></div>
-
-        <p class="form-stamp">Filed at Hartfield Lodge, 10 October MCMXXVII</p>
       </div>
-      <p class="form-caption">Reproduced, in form and substance, from the earliest survey filed. The form has not materially changed since.</p>
     </section>
 
-    <div class="section-rule" aria-hidden="true">✦ ✦ ✦</div>
-
-    <!-- ====== IX. VISITORS' BOOK ====== -->
-    <section id="book">
-      <h2 class="section-title"><span class="num">IX.</span>From the Visitors&rsquo; Book</h2>
-
-      <p class="visitors-head">Sussex Lodge &middot; May 2026, excerpted</p>
-
-      <ol class="visitors">
-        <li><span class="v-date">2 May</span><span class="v-name">H. Treadwell</span><span class="v-note">First time. Saw a deer at the dell.</span></li>
-        <li><span class="v-date">4 May</span><span class="v-name">M. &amp; L. Patel</span><span class="v-note">Brought sandwiches; ate them at the bee tree. Pleasant.</span></li>
-        <li><span class="v-date">9 May</span><span class="v-name">Anonymous</span><span class="v-note">Returned after seven years. <em>Still quiet.</em></span></li>
-        <li><span class="v-date">12 May</span><span class="v-name">F. Owusu</span><span class="v-note">Walked the rope bridges. Wardens replacing the third one.</span></li>
-        <li><span class="v-date">17 May</span><span class="v-name">The Roberts family (four)</span><span class="v-note">Picnic. Hailstorm at 3 p.m. Lodge tea was timely.</span></li>
-        <li><span class="v-date">24 May</span><span class="v-name">D. Konstantinos</span><span class="v-note">Beautiful. Will return.</span></li>
-      </ol>
-
-      <p class="visitors-note">The visitors&rsquo; book has been kept at the Sussex lodge, in unbroken sequence, since November 1926. The entries above are reproduced with the visitors&rsquo; permission, save for the anonymous entry, which was already so.</p>
-    </section>
-
-    <!-- ====== X. COLOPHON ====== -->
-    <footer id="colophon" class="colophon">
-      <p>Set in EB Garamond, on a single HTML file, by the trust&rsquo;s anonymous webmaster, at Hartfield in Sussex, in the month of May, in the year MMXXVI.</p>
-
-      <p>This notice is the first communication the trust has issued by means of a webpage. The trust acknowledges that webpages, by their nature, age, and that this notice will, in time, appear old-fashioned. A printed copy is available at any warden&rsquo;s lodge, and is &mdash; in the trust&rsquo;s view &mdash; more likely to remain legible in twenty years.</p>
-
-      <div class="corr">
-        For correspondence &mdash; including the annual report, warden contacts, the 1927 form, or the centenary volume &mdash; please write to<br>
-        <a href="mailto:trust@honeypotquarters.example">trust@honeypotquarters.example</a><br>
-        Honeypot Quarters Limited, Hartfield, East Sussex
+    <!-- ============ THREE UP ============ -->
+    <section class="wrap" style="padding-top: 24px;">
+      <div class="threeup">
+        <div>
+          <h3>The Charter</h3>
+          <p>The trust&rsquo;s founding charter, written in 1926, is two pages long and has never been amended. It is set out in full, here, with the trust&rsquo;s commentary.</p>
+          <a class="more" href="/charter">Read the charter</a>
+        </div>
+        <div>
+          <h3>Trustees &amp; Wardens</h3>
+          <p>Five trustees, five resident wardens. The full board meets in person on the first Saturday of November, at the Sussex lodge, and at no other time.</p>
+          <a class="more" href="/trustees">Meet the trustees</a>
+        </div>
+        <div>
+          <h3>On Visiting</h3>
+          <p>No charge, no booking, no map to download. Maps are kept at each warden&rsquo;s lodge. Please go gently, and leave the wood as you found it.</p>
+          <a class="more" href="/visit">How to visit</a>
+        </div>
       </div>
+    </section>
 
-      <p class="imprint">Hartfield &middot; MCMXXVI–MMXXVI</p>
-      <span class="ornament-end" aria-hidden="true">✦ ✦ ✦</span>
-    </footer>
+  </main>
 
-  </article>
+  <!-- ============ FOOTER ============ -->
+  <footer class="foot">
+    <div class="foot-inner">
+      <span>Honeypot Quarters Limited &middot; Hartfield, East Sussex</span>
+      <span class="orn">✦ ✦ ✦</span>
+      <span class="imprint">MCMXXVI – MMXXVI</span>
+    </div>
+  </footer>
 
+  <!-- Bee -->
+  <svg class="bee" viewBox="0 0 28 22" aria-hidden="true">
+    <ellipse cx="14" cy="11" rx="6" ry="4" fill="#1F1A12"/>
+    <rect x="11" y="7.5" width="2" height="7" fill="#E2A30C"/>
+    <rect x="15" y="7.5" width="2" height="7" fill="#E2A30C"/>
+    <ellipse cx="11" cy="7" rx="4" ry="2" fill="rgba(255,255,255,0.7)"/>
+    <ellipse cx="17" cy="7" rx="4" ry="2" fill="rgba(255,255,255,0.7)"/>
+  </svg>
+
+  <script>
+    // Mobile nav
+    var t = document.getElementById('navToggle');
+    var l = document.getElementById('navLinks');
+    if (t && l) {
+      t.addEventListener('click', function () {
+        var open = l.classList.toggle('is-open');
+        t.setAttribute('aria-expanded', String(open));
+      });
+    }
+  </script>
 </body>
 </html>
