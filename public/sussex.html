@@ -100,117 +100,21 @@
 
       <div class="wood-body-inner" style="align-items: start;">
         <div class="wood-map">
-          <svg viewBox="0 0 600 420" xmlns="http://www.w3.org/2000/svg" aria-label="Plan of the Hundred Acre Wood">
-
-            <!-- Wood boundary -->
-            <path class="map-boundary" d="M 50 110 C 90 75, 160 70, 240 78 C 290 82, 340 70, 410 82 C 470 95, 530 110, 545 165 C 555 220, 540 280, 520 335 C 500 370, 460 380, 410 378 C 350 378, 290 372, 230 370 C 170 366, 110 360, 75 335 C 45 305, 38 250, 42 195 C 44 155, 45 130, 50 110 Z"/>
-
-            <!-- Paths -->
-            <path class="map-path" d="M 270 350 Q 285 305, 295 255"/>
-            <path class="map-path" d="M 295 195 Q 300 160, 305 130"/>
-            <path class="map-path" d="M 245 250 Q 195 235, 140 220"/>
-            <path class="map-path" d="M 340 250 Q 390 265, 430 275"/>
-
-            <!-- Eeyore's Field (meadow texture region) -->
-            <path d="M 380 240 L 480 248 L 488 305 L 395 312 Z" fill="rgba(107,132,102,0.18)" stroke="rgba(74,95,70,0.5)" stroke-width="0.8" stroke-dasharray="1 3"/>
-            <g fill="rgba(74,95,70,0.4)">
-              <circle cx="410" cy="265" r="1.2"/>
-              <circle cx="430" cy="275" r="1.2"/>
-              <circle cx="450" cy="263" r="1.2"/>
-              <circle cx="445" cy="288" r="1.2"/>
-              <circle cx="420" cy="295" r="1.2"/>
-              <circle cx="465" cy="295" r="1.2"/>
-            </g>
-
-            <!-- Dell (sunken depression) -->
-            <ellipse cx="295" cy="225" rx="60" ry="32" fill="rgba(107,132,102,0.10)" stroke="rgba(74,95,70,0.55)" stroke-width="1.2" stroke-dasharray="3 3"/>
-            <ellipse cx="295" cy="225" rx="44" ry="22" fill="none" stroke="rgba(74,95,70,0.35)" stroke-width="0.8" stroke-dasharray="2 3"/>
-
-            <!-- Rope bridges (three) crossing the dell -->
-            <path d="M 240 215 L 250 218 L 260 215 L 270 218 L 280 215 L 290 218 L 300 215 L 310 218 L 320 215 L 330 218 L 340 215 L 350 218" stroke="#1F1A12" stroke-width="0.8" fill="none"/>
-            <path d="M 238 225 L 248 222 L 258 225 L 268 222 L 278 225 L 288 222 L 298 225 L 308 222 L 318 225 L 328 222 L 338 225 L 348 222 L 352 225" stroke="#1F1A12" stroke-width="0.8" fill="none"/>
-            <path d="M 240 235 L 250 232 L 260 235 L 270 232 L 280 235 L 290 232 L 300 235 L 310 232 L 320 235 L 330 232 L 340 235 L 350 232" stroke="#1F1A12" stroke-width="0.8" fill="none"/>
-
-            <!-- Bee Tree -->
-            <g transform="translate(115, 215)">
-              <ellipse cx="0" cy="-8" rx="18" ry="20" class="map-tree"/>
-              <ellipse cx="-7" cy="-14" rx="10" ry="12" class="map-tree"/>
-              <ellipse cx="9" cy="-12" rx="11" ry="13" class="map-tree"/>
-              <rect x="-3" y="10" width="6" height="22" class="map-feature"/>
-              <!-- Hive hollow -->
-              <ellipse cx="0" cy="-6" rx="3" ry="4" fill="#E2A30C"/>
-              <!-- A bee -->
-              <circle cx="-22" cy="-22" r="1.5" fill="#E2A30C"/>
-              <circle cx="-22" cy="-22" r="0.7" fill="#1F1A12"/>
-            </g>
-
-            <!-- The Warden's Lodge -->
-            <g transform="translate(258, 340)">
-              <rect x="0" y="6" width="24" height="18" class="map-feature"/>
-              <path d="M -2 6 L 12 -4 L 26 6 Z" class="map-feature"/>
-              <rect x="10" y="12" width="4" height="12" fill="var(--paper)"/>
-              <!-- chimney smoke (suggestive) -->
-              <path d="M 18 -2 Q 20 -8 22 -6 Q 24 -10 26 -6" stroke="var(--muted)" stroke-width="0.7" fill="none" opacity="0.6"/>
-            </g>
-
-            <!-- The North Pole (so-called) — a stump -->
-            <g transform="translate(305, 125)">
-              <ellipse cx="0" cy="0" rx="10" ry="4" class="map-feature"/>
-              <rect x="-10" y="-2" width="20" height="6" class="map-feature"/>
-              <!-- rings on top -->
-              <ellipse cx="0" cy="0" rx="7" ry="2.5" fill="none" stroke="var(--paper)" stroke-width="0.6"/>
-              <ellipse cx="0" cy="0" rx="4" ry="1.5" fill="none" stroke="var(--paper)" stroke-width="0.4"/>
-            </g>
-
-            <!-- Numbered badges -->
-            <g>
-              <circle class="map-num" cx="250" cy="335" r="11"/><text class="map-num-text" x="250" y="338">1</text>
-              <circle class="map-num" cx="278" cy="290" r="11"/><text class="map-num-text" x="278" y="293">2</text>
-              <circle class="map-num" cx="298" cy="183" r="11"/><text class="map-num-text" x="298" y="186">3</text>
-              <circle class="map-num" cx="142" cy="195" r="11"/><text class="map-num-text" x="142" y="198">4</text>
-              <circle class="map-num" cx="312" cy="160" r="11"/><text class="map-num-text" x="312" y="163">5</text>
-              <circle class="map-num" cx="328" cy="115" r="11"/><text class="map-num-text" x="328" y="118">6</text>
-              <circle class="map-num" cx="432" cy="278" r="11"/><text class="map-num-text" x="432" y="281">7</text>
-            </g>
-
-            <!-- Compass (top right inside boundary) -->
-            <g transform="translate(495, 130)">
-              <circle r="20" fill="rgba(242,232,207,0.92)" stroke="#1F1A12" stroke-width="1"/>
-              <path d="M 0 -16 L 4 0 L 0 16 L -4 0 Z" class="map-compass"/>
-              <text x="0" y="-23" text-anchor="middle" class="map-label">N</text>
-            </g>
-
-            <!-- Scale -->
-            <g transform="translate(60, 395)">
-              <line x1="0" y1="0" x2="80" y2="0" class="map-scale"/>
-              <line x1="0" y1="-3" x2="0" y2="3" class="map-scale"/>
-              <line x1="40" y1="-3" x2="40" y2="3" class="map-scale"/>
-              <line x1="80" y1="-3" x2="80" y2="3" class="map-scale"/>
-              <text x="0" y="14" class="map-label" text-anchor="start">0</text>
-              <text x="80" y="14" class="map-label">100 acres</text>
-            </g>
-
-            <!-- Title in upper left -->
-            <g transform="translate(72, 105)">
-              <text class="map-label-hand" fill="#1F1A12" font-size="18">The Hundred Acre Wood</text>
-              <text x="0" y="14" class="map-label" font-style="italic" font-size="9" fill="#6B5C46">surveyed Oct. MMXXIV · R. Hartfield, warden</text>
-            </g>
-
-          </svg>
+          <img src="/img/map-sussex.jpg" alt="A hand-painted illustrated map of the Hundred Acre Wood — the warden's lodge, the dell with rope bridges, the bee tree, the North Pole stump, and Eeyore's Field — on aged cream paper" loading="lazy">
           <p class="wood-map-cap">Surveyed autumn 2024 · One page only</p>
         </div>
 
         <div class="legend">
-          <h4>Marked features</h4>
-          <ol>
-            <li><span class="n">1</span><span>The Warden&rsquo;s Lodge — south gate; the only building at the wood.</span></li>
-            <li><span class="n">2</span><span>The Lower Path — from the gate to the dell, about 200 yards.</span></li>
-            <li><span class="n">3</span><span>The Dell — three rope bridges, replaced each spring by hand.</span></li>
-            <li><span class="n">4</span><span>The Bee Tree — a hornbeam of considerable age, with a long-resident colony.</span></li>
-            <li><span class="n">5</span><span>The Upper Path — from the dell to the northern stump; bicycles permitted.</span></li>
-            <li><span class="n">6</span><span>The North Pole (so-called) — a hawthorn stump on the northern boundary.</span></li>
-            <li><span class="n">7</span><span>Eeyore&rsquo;s Field — a small east-facing meadow, kept by no one in particular.</span></li>
-          </ol>
+          <h4>In this wood</h4>
+          <ul>
+            <li><strong>The Warden&rsquo;s Lodge</strong> — south gate; the only building at the wood.</li>
+            <li><strong>The Lower Path</strong> — from the gate to the dell, about 200 yards.</li>
+            <li><strong>The Dell</strong> — three rope bridges, replaced each spring by hand.</li>
+            <li><strong>The Bee Tree</strong> — a hornbeam of considerable age, with a long-resident colony.</li>
+            <li><strong>The Upper Path</strong> — from the dell to the northern stump; bicycles permitted.</li>
+            <li><strong>The North Pole (so-called)</strong> — a hawthorn stump on the northern boundary.</li>
+            <li><strong>Eeyore&rsquo;s Field</strong> — a small east-facing meadow, kept by no one in particular.</li>
+          </ul>
         </div>
       </div>
     </section>
