@@ -3,104 +3,902 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Honeypot Quarters Limited</title>
+  <meta name="description" content="Honeypot Quarters Limited — custodians of the Hundred Acre Woods since 1926. Preserving five woodlands across Sussex, Dordogne, Andalusia, Tuscany and Krasnodar.">
+  <title>Honeypot Quarters Limited — Custodians of the Hundred Acre Woods</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --honey: #FFB81C;
+      --honey-deep: #EAA810;
+      --honey-dark: #B57F0C;
+      --bark: #5C3A1E;
+      --bark-deep: #2A1F14;
+      --cream: #FFF8E7;
+      --cream-soft: #FFFCF5;
+      --muted: #6B5847;
+      --rule: rgba(92, 58, 30, 0.15);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
     body {
-      font-family: 'Times New Roman', serif;
+      font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
+      font-size: 18px;
+      line-height: 1.65;
       margin: 0;
       padding: 0;
-      background-color: #fff;
+      color: var(--bark-deep);
+      background-color: var(--cream-soft);
+      -webkit-font-smoothing: antialiased;
     }
-    header {
-      background-color: #FFB81C;
-      color: white;
-      padding: 20px;
-      text-align: center;
+
+    h1, h2, h3, h4 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--bark-deep);
+      margin: 0 0 0.5em;
     }
-    nav {
-      background-color: #EAA810;
+
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); }
+    h3 { font-size: 1.35rem; }
+
+    p { margin: 0 0 1em; }
+
+    a { color: var(--honey-dark); text-decoration: none; }
+    a:hover { color: var(--bark); }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
     }
-    nav ul {
-      list-style-type: none;
-      padding: 0;
-      overflow: hidden;
-      background-color: #EAA810;
-      text-align: center;
+
+    /* Honeycomb pattern, used sparingly as background accent */
+    .honeycomb-bg {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23B57F0C' stroke-opacity='0.08' stroke-width='1.2'><polygon points='28,2 54,17 54,47 28,62 2,47 2,17'/><polygon points='28,50 54,65 54,95 28,110 2,95 2,65'/></g></svg>");
+      background-size: 56px 96px;
     }
-    nav ul li {
-      display: inline;
+
+    /* ====== NAV ====== */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 252, 245, 0.92);
+      backdrop-filter: saturate(140%) blur(8px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
-    nav ul li a {
+    .nav.is-scrolled {
+      border-bottom-color: var(--rule);
+      box-shadow: 0 4px 18px rgba(92, 58, 30, 0.04);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1.05rem;
+      color: var(--bark-deep);
+    }
+    .brand-mark {
+      width: 28px; height: 28px;
       display: inline-block;
-      color: white;
-      text-decoration: none;
-      padding: 14px 16px;
-      transition: 0.3s;
     }
-    nav ul li a:hover {
-      background-color: #ffaa22;
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
-    main {
-      padding: 20px;
+    .nav-links a {
+      color: var(--bark);
+      font-size: 0.98rem;
+      letter-spacing: 0.01em;
+      position: relative;
+      padding: 4px 0;
     }
-    footer {
-      background-color: #EAA810;
-      color: white;
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0; right: 0; bottom: -2px;
+      height: 1.5px;
+      background: var(--honey-deep);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.25s ease;
+    }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 8px 10px;
+      cursor: pointer;
+      color: var(--bark);
+    }
+
+    @media (max-width: 760px) {
+      .nav-links {
+        position: absolute;
+        top: 100%; left: 0; right: 0;
+        background: var(--cream-soft);
+        flex-direction: column;
+        gap: 0;
+        padding: 8px 0;
+        border-bottom: 1px solid var(--rule);
+        display: none;
+      }
+      .nav-links.is-open { display: flex; }
+      .nav-links li { border-top: 1px solid var(--rule); }
+      .nav-links a { display: block; padding: 14px 24px; }
+      .nav-toggle { display: inline-flex; }
+    }
+
+    /* ====== HERO ====== */
+    .hero {
+      position: relative;
+      padding: 110px 0 120px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 80% 60% at 50% 0%, rgba(255, 184, 28, 0.18), transparent 70%),
+        linear-gradient(180deg, var(--cream) 0%, var(--cream-soft) 100%);
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='56' height='96' viewBox='0 0 56 96'><g fill='none' stroke='%23B57F0C' stroke-opacity='0.07' stroke-width='1.2'><polygon points='28,2 54,17 54,47 28,62 2,47 2,17'/><polygon points='28,50 54,65 54,95 28,110 2,95 2,65'/></g></svg>");
+      background-size: 56px 96px;
+      mask-image: radial-gradient(ellipse 70% 60% at 80% 30%, black, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
       text-align: center;
-      padding: 10px;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .eyebrow {
+      display: inline-block;
+      font-family: 'Fraunces', serif;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--honey-dark);
+      padding: 6px 14px;
+      border: 1px solid var(--honey-deep);
+      border-radius: 999px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 6vw, 4.4rem);
+      line-height: 1.05;
+      font-weight: 500;
+      margin-bottom: 22px;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--honey-deep);
+    }
+    .hero-sub {
+      font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+      color: var(--muted);
+      max-width: 580px;
+      margin: 0 auto 36px;
+    }
+    .cta-row {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-block;
+      padding: 13px 26px;
+      border-radius: 999px;
+      font-family: 'Fraunces', serif;
+      font-size: 0.98rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+      border: 1px solid transparent;
+    }
+    .btn-primary {
+      background: var(--honey);
+      color: var(--bark-deep);
+    }
+    .btn-primary:hover { background: var(--honey-deep); transform: translateY(-1px); color: var(--bark-deep); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--bark);
+      border-color: var(--rule);
+    }
+    .btn-ghost:hover { border-color: var(--bark); color: var(--bark-deep); }
+
+    /* ====== SECTIONS ====== */
+    section { padding: 96px 0; }
+    section.alt { background: var(--cream); }
+
+    .section-head {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 56px;
+    }
+    .section-head .eyebrow { margin-bottom: 18px; }
+    .section-head p {
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    /* ====== STATS ====== */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      overflow: hidden;
+      max-width: 820px;
+      margin: 48px auto 0;
+    }
+    .stat {
+      background: var(--cream-soft);
+      padding: 32px 20px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Fraunces', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--honey-deep);
+      display: block;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .stat-label {
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    @media (max-width: 640px) {
+      .stats { grid-template-columns: 1fr; }
+    }
+
+    /* ====== PROPERTIES ====== */
+    .property-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+    }
+    .property {
+      background: var(--cream-soft);
+      border: 1px solid var(--rule);
+      border-radius: 14px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .property:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 14px 40px rgba(92, 58, 30, 0.08);
+    }
+    .property-art {
+      height: 140px;
+      position: relative;
+      overflow: hidden;
+    }
+    .property-art svg { width: 100%; height: 100%; display: block; }
+    .property-body { padding: 24px 26px 26px; flex: 1; display: flex; flex-direction: column; }
+    .property-name-local {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 0.95rem;
+      color: var(--honey-dark);
+      margin-bottom: 4px;
+    }
+    .property h3 { margin-bottom: 4px; }
+    .property-location {
+      font-size: 0.9rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .property-desc { color: var(--bark); font-size: 1rem; margin-bottom: 18px; }
+    .property-meta {
+      margin-top: auto;
+      padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 18px;
+      font-size: 0.88rem;
+    }
+    .property-meta dt {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      font-size: 0.74rem;
+      margin-bottom: 2px;
+    }
+    .property-meta dd {
+      margin: 0;
+      color: var(--bark-deep);
+      font-family: 'Fraunces', serif;
+    }
+
+    /* ====== TIMELINE ====== */
+    .timeline {
+      position: relative;
+      max-width: 720px;
+      margin: 0 auto;
+      padding-left: 28px;
+    }
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 6px; top: 6px; bottom: 6px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--honey) 0%, var(--honey-dark) 100%);
+      border-radius: 2px;
+    }
+    .timeline-item {
+      position: relative;
+      padding: 0 0 36px 28px;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      left: -6px; top: 8px;
+      width: 14px; height: 14px;
+      border-radius: 50%;
+      background: var(--honey);
+      border: 2px solid var(--cream);
+      box-shadow: 0 0 0 2px var(--honey-dark);
+    }
+    .timeline-year {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      color: var(--honey-dark);
+      font-size: 1.1rem;
+      letter-spacing: 0.04em;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .timeline-item h3 { margin-bottom: 6px; font-size: 1.15rem; }
+    .timeline-item p { color: var(--bark); margin: 0; }
+
+    /* ====== CODE OF THE WOOD ====== */
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      counter-reset: principle;
+    }
+    .principle {
+      counter-increment: principle;
+      padding: 28px 24px;
+      background: var(--cream-soft);
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      position: relative;
+    }
+    .principle::before {
+      content: counter(principle, decimal-leading-zero);
+      font-family: 'Fraunces', serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      color: var(--honey-dark);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .principle h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .principle p { color: var(--muted); font-size: 0.98rem; margin: 0; }
+
+    /* ====== TRUSTEES ====== */
+    .trustees {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .trustee {
+      padding: 22px;
+      text-align: center;
+      border: 1px solid var(--rule);
+      border-radius: 12px;
+      background: var(--cream-soft);
+    }
+    .trustee-name {
+      font-family: 'Fraunces', serif;
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--bark-deep);
+      margin-bottom: 4px;
+    }
+    .trustee-role {
+      font-size: 0.88rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ====== VISIT ====== */
+    .visit-card {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 44px 40px;
+      background: var(--cream-soft);
+      border: 1px solid var(--rule);
+      border-radius: 16px;
+      text-align: center;
+    }
+    .visit-card p { color: var(--muted); }
+    .visit-card .btn { margin-top: 8px; }
+
+    /* ====== FOOTER ====== */
+    footer {
+      background: var(--bark-deep);
+      color: rgba(255, 252, 245, 0.85);
+      padding: 56px 0 32px;
+      font-size: 0.92rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 36px;
+    }
+    @media (max-width: 700px) {
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    }
+    footer h4 {
+      color: var(--honey);
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    footer ul { list-style: none; padding: 0; margin: 0; }
+    footer ul li { margin-bottom: 8px; }
+    footer a { color: rgba(255, 252, 245, 0.85); }
+    footer a:hover { color: var(--honey); }
+    .footer-brand {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      color: var(--cream-soft);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .footer-note {
+      max-width: 360px;
+      color: rgba(255, 252, 245, 0.6);
+      font-size: 0.88rem;
+      margin: 0;
+    }
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 252, 245, 0.12);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      color: rgba(255, 252, 245, 0.5);
+      font-size: 0.82rem;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to Honeypot Quarters Limited</h1>
+
+  <!-- ===== NAV ===== -->
+  <header class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand" aria-label="Honeypot Quarters home">
+        <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
+          <polygon points="16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5" fill="#FFB81C" stroke="#B57F0C" stroke-width="1.2"/>
+          <polygon points="16,9 23,13 23,21 16,25 9,21 9,13" fill="#FFFCF5" stroke="#B57F0C" stroke-width="0.8"/>
+        </svg>
+        Honeypot Quarters
+      </a>
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#woods">Our Woods</a></li>
+        <li><a href="#heritage">Heritage</a></li>
+        <li><a href="#code">The Code</a></li>
+        <li><a href="#trustees">Trustees</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </div>
   </header>
-  
-  <nav>
-    <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">About Us</a></li>
-      <li><a href="#">Our Properties</a></li>
-      <li><a href="#">Our Mission</a></li>
-      <li><a href="#">Contact Us</a></li>
-    </ul>
-  </nav>
-  
-  <main>
-    <section id="intro">
-      <h2>About Us</h2>
-      <p>Honeypot Quarters Limited is a globally recognized organization dedicated to preserving and promoting the beauty and enchantment of the Hundred Acre Woods around the globe. We believe in the power of nature to bring joy and inspiration, and strive to provide a sanctuary for visitors to experience the peace and tranquility of these magical woods.</p>
 
-      <p>With properties spanning from the rolling green landscapes of Sussex in the United Kingdom to the rustic countryside of Krasnodar in Russia, we strive to maintain the authenticity and diversity of these woods. Each of our Hundred Acre Woods has been meticulously preserved to respect the local fauna and flora, creating a haven for wildlife and a wonderful retreat for visitors.</p>
+  <main id="top">
 
-      <p>As custodians of these beautiful properties, we work closely with local communities and conservationists to ensure sustainable management practices. We prioritize the health and well-being of the ecosystem, balancing accessibility with preservation efforts.</p>
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-inner">
+        <span class="eyebrow">Est. 1926 &nbsp;·&nbsp; A Centenary Year</span>
+        <h1>Custodians of the <em>Hundred Acre Woods.</em></h1>
+        <p class="hero-sub">Honeypot Quarters Limited has, for one hundred years, kept five woodlands in trust — from the South Downs to the Caucasus — so that each may remain quiet, wild, and open to those who go gently.</p>
+        <div class="cta-row">
+          <a href="#woods" class="btn btn-primary">Visit Our Woods</a>
+          <a href="#heritage" class="btn btn-ghost">Our Story</a>
+        </div>
+        <div class="stats">
+          <div class="stat">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Woodlands</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">500</span>
+            <span class="stat-label">Acres in Trust</span>
+          </div>
+          <div class="stat">
+            <span class="stat-num">100</span>
+            <span class="stat-label">Years of Stewardship</span>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="properties">
-      <h2>Our Properties</h2>
-      <p>We are proud owners of numerous Hundred Acre Woods across the world. Our portfolio represents a diverse array of natural habitats, each with their own unique charm and character.</p>
+    <!-- ===== ABOUT ===== -->
+    <section id="about">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">About the Trust</span>
+          <h2>A quiet trust for a noisy century.</h2>
+          <p>We do one thing: we look after woods. Five of them, each a Hundred Acres, scattered across Europe and held in perpetuity for the wildlife that lives there and the people who walk through them.</p>
+        </div>
+        <div style="max-width: 720px; margin: 0 auto; color: var(--bark);">
+          <p>Honeypot Quarters was founded in the autumn of 1926 by a small circle of foresters, librarians and a single, anonymous benefactor who insisted only that the woods be kept "as they are, or better." That instruction has guided every decision since.</p>
+          <p>We are a private trust, not a tourist company. Our properties are open to the public, freely, but we do not market them. There is no gift shop. There is no café (except in Sussex, on Sundays, and only for tea). What there is, in great quantity, is woodland — managed lightly, surveyed annually, and shared willingly.</p>
+          <p>The Hundred Acre Woods are not five copies of one place. The Sussex wood is hornbeam and oak; the Dordogne, chestnut; Andalusia, cork and pine; Tuscany, holm and umbrella; Krasnodar, beech and silver fir. What unites them is a single covenant — that no acre be enclosed, drained, felled for sale, or improved beyond recognition.</p>
+        </div>
+      </div>
+    </section>
 
-      <h3>The Hundred Acre Wood, Sussex, England</h3>
-      <p>This is the original Hundred Acre Wood that has captured the imaginations of children and adults alike for generations. The vast expanses of open meadows, dense woodlands, and sparkling streams provide a tranquil escape from the hustle and bustle of everyday life.
+    <!-- ===== WOODS ===== -->
+    <section id="woods" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Our Properties</span>
+          <h2>Five woods, one covenant.</h2>
+          <p>Each Hundred Acre Wood is held under the same founding charter and managed by a resident warden. All are open to visitors on foot, daylight hours, all year round.</p>
+        </div>
 
-  <h3>Le Bois de Cent Acres - Dordogne, France</h3>
-  <p>Nestled in the heart of the Dordogne region, this Hundred Acre Wood offers visitors a taste of the French countryside. With its quaint groves, enchanting wildlife, and serene pastures, it's a picture-perfect sanctuary that encapsulates the charm of rural France.</p>
+        <div class="property-grid">
 
-  <h3>El Bosque de las Cien Acres - Andalusia, Spain</h3>
-  <p>Located in the sunny region of Andalusia, our Spanish Hundred Acre Wood is a vibrant blend of lush forests, wildflower meadows, and rolling hills. The wood comes alive with color and sound, making it a feast for the senses.</p>
+          <article class="property">
+            <div class="property-art">
+              <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs><linearGradient id="g1" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#cfe0c2"/><stop offset="1" stop-color="#7d9a6a"/></linearGradient></defs>
+                <rect width="400" height="140" fill="url(#g1)"/>
+                <path d="M0,110 Q60,80 120,100 T260,95 T400,105 L400,140 L0,140 Z" fill="#5a7a4a" opacity="0.7"/>
+                <path d="M0,125 Q80,108 160,118 T320,115 T400,122 L400,140 L0,140 Z" fill="#3d5a30"/>
+              </svg>
+            </div>
+            <div class="property-body">
+              <div class="property-name-local">The Hundred Acre Wood</div>
+              <h3>Sussex, England</h3>
+              <div class="property-location">South Downs · The Original</div>
+              <p class="property-desc">Hornbeam, oak and bracken; rope bridges that the warden replaces each spring. The wood that gave the trust its name and its founding charter.</p>
+              <dl class="property-meta">
+                <div><dt>Founded</dt><dd>1926</dd></div>
+                <div><dt>Acreage</dt><dd>100</dd></div>
+                <div><dt>Resident</dt><dd>European Brown Bear (one)</dd></div>
+                <div><dt>Open</dt><dd>Daily, dawn–dusk</dd></div>
+              </dl>
+            </div>
+          </article>
 
-  <h3>Il Bosco dei Cento Acri - Tuscany, Italy</h3>
-  <p>Our Italian Hundred Acre Wood is a rustic paradise set against the picturesque backdrop of Tuscany. Its verdant hills, winding trails, and tranquil streams are a testament to the timeless beauty of Italian landscapes.</p>
+          <article class="property">
+            <div class="property-art">
+              <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs><linearGradient id="g2" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#e8d9b0"/><stop offset="1" stop-color="#a08658"/></linearGradient></defs>
+                <rect width="400" height="140" fill="url(#g2)"/>
+                <path d="M0,90 Q100,60 200,80 T400,75 L400,140 L0,140 Z" fill="#8b6f3e" opacity="0.7"/>
+                <path d="M0,115 Q100,100 200,108 T400,105 L400,140 L0,140 Z" fill="#5e4824"/>
+              </svg>
+            </div>
+            <div class="property-body">
+              <div class="property-name-local">Le Bois de Cent Acres</div>
+              <h3>Dordogne, France</h3>
+              <div class="property-location">Périgord Noir · Acquired Postwar</div>
+              <p class="property-desc">Sweet chestnut and walnut, an old monastic limestone path, and a single beehive maintained by the local commune since 1951.</p>
+              <dl class="property-meta">
+                <div><dt>Acquired</dt><dd>1948</dd></div>
+                <div><dt>Acreage</dt><dd>100</dd></div>
+                <div><dt>Resident</dt><dd>Beech Marten</dd></div>
+                <div><dt>Open</dt><dd>Daily, dawn–dusk</dd></div>
+              </dl>
+            </div>
+          </article>
 
-  <h3>Sto Acre Wood - Krasnodar, Russia</h3>
-  <p>The Sto Acre Wood in Krasnodar is our newest addition. Surrounded by the breathtaking landscapes of Russia, it's a unique blend of serene forests, tranquil rivers, and rich biodiversity, offering an immersive experience in the heart of Russia's wilderness.</p>
-</section>
+          <article class="property">
+            <div class="property-art">
+              <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs><linearGradient id="g3" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#f5d49a"/><stop offset="1" stop-color="#b6804a"/></linearGradient></defs>
+                <rect width="400" height="140" fill="url(#g3)"/>
+                <path d="M0,100 Q80,70 160,90 T320,85 T400,92 L400,140 L0,140 Z" fill="#956036" opacity="0.7"/>
+                <path d="M0,120 Q80,110 160,116 T400,118 L400,140 L0,140 Z" fill="#6b3e1d"/>
+              </svg>
+            </div>
+            <div class="property-body">
+              <div class="property-name-local">El Bosque de las Cien Acres</div>
+              <h3>Andalusia, Spain</h3>
+              <div class="property-location">Sierra de Aracena · The Cork Wood</div>
+              <p class="property-desc">Cork oak and umbrella pine on warm Andalucían hillside. Cork is harvested every nine years, by hand, and returned to local cooperatives.</p>
+              <dl class="property-meta">
+                <div><dt>Acquired</dt><dd>1972</dd></div>
+                <div><dt>Acreage</dt><dd>100</dd></div>
+                <div><dt>Resident</dt><dd>Iberian Lynx (visiting)</dd></div>
+                <div><dt>Open</dt><dd>Daily, dawn–dusk</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="property">
+            <div class="property-art">
+              <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs><linearGradient id="g4" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#d8c89a"/><stop offset="1" stop-color="#7a8a4a"/></linearGradient></defs>
+                <rect width="400" height="140" fill="url(#g4)"/>
+                <path d="M0,95 Q100,75 200,85 T400,82 L400,140 L0,140 Z" fill="#6a7a3a" opacity="0.7"/>
+                <path d="M0,118 Q100,108 200,114 T400,112 L400,140 L0,140 Z" fill="#4a5a26"/>
+              </svg>
+            </div>
+            <div class="property-body">
+              <div class="property-name-local">Il Bosco dei Cento Acri</div>
+              <h3>Tuscany, Italy</h3>
+              <div class="property-location">Val d'Orcia · The Stone Wood</div>
+              <p class="property-desc">Holm oak, umbrella pine and the ruins of a 14th-century chapel kept (deliberately) as ruin. Crossed by an old pilgrim path.</p>
+              <dl class="property-meta">
+                <div><dt>Acquired</dt><dd>1989</dd></div>
+                <div><dt>Acreage</dt><dd>100</dd></div>
+                <div><dt>Resident</dt><dd>Crested Porcupine</dd></div>
+                <div><dt>Open</dt><dd>Daily, dawn–dusk</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="property">
+            <div class="property-art">
+              <svg viewBox="0 0 400 140" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+                <defs><linearGradient id="g5" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#c4d4d0"/><stop offset="1" stop-color="#5a6e62"/></linearGradient></defs>
+                <rect width="400" height="140" fill="url(#g5)"/>
+                <path d="M0,85 Q100,55 200,75 T400,72 L400,140 L0,140 Z" fill="#4a5e52" opacity="0.8"/>
+                <path d="M0,115 Q100,98 200,108 T400,106 L400,140 L0,140 Z" fill="#2f4238"/>
+              </svg>
+            </div>
+            <div class="property-body">
+              <div class="property-name-local">Сто-Акровый Лес · Sto-Akrovyi Les</div>
+              <h3>Krasnodar Krai, Russia</h3>
+              <div class="property-location">Western Caucasus · Newest</div>
+              <p class="property-desc">Caucasian beech and silver fir on the northern slopes. The wettest and the oldest of the five, with trees recorded at over four hundred years.</p>
+              <dl class="property-meta">
+                <div><dt>Acquired</dt><dd>2004</dd></div>
+                <div><dt>Acreage</dt><dd>100</dd></div>
+                <div><dt>Resident</dt><dd>Caucasian Lynx</dd></div>
+                <div><dt>Open</dt><dd>May–October, daylight</dd></div>
+              </dl>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HERITAGE / TIMELINE ===== -->
+    <section id="heritage">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Heritage</span>
+          <h2>A hundred years, kept lightly.</h2>
+          <p>The trust has changed hands four times and its premises only twice. The covenant has not changed at all.</p>
+        </div>
+        <div class="timeline">
+          <div class="timeline-item">
+            <span class="timeline-year">1926</span>
+            <h3>The trust is founded</h3>
+            <p>Established in Hartfield, Sussex, by a small consortium of foresters and a single anonymous benefactor. The founding charter, two pages long, is still kept at the Sussex warden's lodge.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">1948</span>
+            <h3>Le Bois de Cent Acres acquired</h3>
+            <p>Purchased from the Périgord commune after the war, on the condition that the limestone pilgrim path remain open to walkers without charge — a condition the trust has honoured for seventy-eight years.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">1972</span>
+            <h3>The Andalusia covenant</h3>
+            <p>El Bosque de las Cien Acres is acquired from a cooperative of cork farmers. The cork harvest continues, by hand, on the original nine-year cycle.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">1989</span>
+            <h3>Tuscany joins the trust</h3>
+            <p>Il Bosco dei Cento Acri is donated by the estate of a former trustee. The 14th-century chapel ruin within the wood is preserved, by deliberate policy, as ruin.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2004</span>
+            <h3>The Caucasus wood is added</h3>
+            <p>Сто-Акровый Лес in Krasnodar Krai becomes the fifth and final wood. Its acquisition takes eleven years of negotiation and remains the trust's largest single project.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="timeline-year">2026</span>
+            <h3>The Centenary</h3>
+            <p>The trust marks one hundred years with the publication of <em>A Hundred Acres, A Hundred Years</em> — a single-volume survey of the five woods, available at each warden's lodge.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CODE OF THE WOOD ===== -->
+    <section id="code" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">The Code of the Wood</span>
+          <h2>Five principles, kept since 1926.</h2>
+          <p>The founding charter is short. These are its provisions, rendered into plain English, and printed on the back of every visitor's map.</p>
+        </div>
+        <div class="principles">
+          <div class="principle">
+            <h3>Leave it as you found it</h3>
+            <p>Or, if you must change something, change it for the better. No fences raised that need not be raised; no path widened that need not be widened.</p>
+          </div>
+          <div class="principle">
+            <h3>The wood is not a product</h3>
+            <p>No timber is sold. No acre is enclosed. No commercial use is made of the land beyond the cork harvest in Andalusia and the Sussex Sunday teas.</p>
+          </div>
+          <div class="principle">
+            <h3>Visitors are guests</h3>
+            <p>The woods are free to walk, all year, in daylight. Wardens are present to help, not to charge. Dogs welcome on leads; bicycles on marked tracks only.</p>
+          </div>
+          <div class="principle">
+            <h3>Wildlife comes first</h3>
+            <p>If a path disturbs a sett, the path is moved. If a tree falls across a track, it is sawn through and left in place. The wood is for those who live in it.</p>
+          </div>
+          <div class="principle">
+            <h3>Survey every year</h3>
+            <p>Each wood is walked end-to-end every autumn by its warden and a single trustee. The survey is one page long. It has been filed, without interruption, since 1927.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TRUSTEES ===== -->
+    <section id="trustees">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Trustees &amp; Wardens</span>
+          <h2>A small board, in person, in autumn.</h2>
+          <p>The trust is governed by five trustees and five resident wardens — one of each per wood. The full board meets once a year, on the first Saturday of November, at the Sussex lodge.</p>
+        </div>
+        <div class="trustees">
+          <div class="trustee">
+            <div class="trustee-name">Eleanor Hartfield</div>
+            <div class="trustee-role">Chair · Sussex</div>
+          </div>
+          <div class="trustee">
+            <div class="trustee-name">Pascal Mareuil</div>
+            <div class="trustee-role">Trustee · Dordogne</div>
+          </div>
+          <div class="trustee">
+            <div class="trustee-name">Inés Vega Carrasco</div>
+            <div class="trustee-role">Trustee · Andalusia</div>
+          </div>
+          <div class="trustee">
+            <div class="trustee-name">Tommaso Bellini</div>
+            <div class="trustee-role">Trustee · Tuscany</div>
+          </div>
+          <div class="trustee">
+            <div class="trustee-name">Sofia Aleksandrovna Volkova</div>
+            <div class="trustee-role">Trustee · Krasnodar</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== VISIT ===== -->
+    <section id="visit" class="alt">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">Visiting</span>
+          <h2>You are already welcome.</h2>
+        </div>
+        <div class="visit-card">
+          <p>There is no admission charge, no booking, and no map to download — maps are kept at each warden's lodge and are yours to take. Please go gently, follow the marked paths, and leave the wood as you found it. Or, if you must, better.</p>
+          <p style="margin-bottom: 28px;">For correspondence — including the annual report, warden contacts, or the centenary volume — write to us directly.</p>
+          <a class="btn btn-primary" href="mailto:trust@honeypotquarters.example">Write to the Trust</a>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-
+  <!-- ===== FOOTER ===== -->
   <footer>
-    <p>&copy; 2023 Honeypot Quarters Limited. All rights reserved.</p>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+              <polygon points="16,2 29,9.5 29,22.5 16,30 3,22.5 3,9.5" fill="#FFB81C" stroke="#B57F0C" stroke-width="1.2"/>
+              <polygon points="16,9 23,13 23,21 16,25 9,21 9,13" fill="#FFFCF5" stroke="#B57F0C" stroke-width="0.8"/>
+            </svg>
+            Honeypot Quarters
+          </div>
+          <p class="footer-note">A private trust, founded 1926, holding five Hundred Acre Woods in perpetuity. Registered office: Hartfield, East Sussex.</p>
+        </div>
+        <div>
+          <h4>The Trust</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#heritage">Heritage</a></li>
+            <li><a href="#code">The Code</a></li>
+            <li><a href="#trustees">Trustees</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>The Woods</h4>
+          <ul>
+            <li><a href="#woods">Sussex</a></li>
+            <li><a href="#woods">Dordogne</a></li>
+            <li><a href="#woods">Andalusia</a></li>
+            <li><a href="#woods">Tuscany</a></li>
+            <li><a href="#woods">Krasnodar</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 1926–2026 Honeypot Quarters Limited. All woods kept in perpetuity.</span>
+        <span>Centenary Year</span>
+      </div>
+    </div>
   </footer>
+
+  <script>
+    // Sticky nav shadow
+    const nav = document.getElementById('nav');
+    const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Mobile nav toggle
+    const toggle = document.getElementById('nav-toggle');
+    const links = document.getElementById('nav-links');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+    // Close menu after picking a link on mobile
+    links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      links.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }));
+  </script>
 </body>
 </html>
